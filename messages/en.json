@@ -1,0 +1,30 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+
+	"Header": {
+		"login": "Login"
+	},
+
+	"LogoutButton": {
+		"logout": "Logout"
+	},
+
+	"ErrorPage": {
+		"error": "Error",
+		"goHome": "Go Home"
+	},
+
+	"LoginPage": {
+		"welcomeBack": "Welcome back",
+		"signInToYourAccountToContinue": "Sign in to your account to continue",
+		"continueWithGoogle": "Continue with Google",
+		"byContinuingYouAgreeToOur": "By continuing, you agree to our",
+		"termsOfService": "Terms of Service",
+		"privacyPolicy": "Privacy Policy",
+		"and": "and"
+	},
+
+	"GenericMessages": {
+		"TOO_MANY_REQUESTS": "Too many requests. Please try again later."
+	}
+}
