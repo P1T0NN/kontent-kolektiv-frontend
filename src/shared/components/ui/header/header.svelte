@@ -48,7 +48,7 @@
 		<!-- Logo -->
 		<a href="/" class="flex items-center gap-2.5 shrink-0">
 			<img src="/logo/kontent-kolektiv-logo.png" alt="KontentKolektiv logo" class="w-8 h-8 rounded-lg" />
-			<span class="text-[1rem] font-bold text-white/90 tracking-tight font-display hidden sm:block">KontentKolektiv</span>
+			<span class="text-[1rem] font-bold text-white/90 tracking-tight font-display">KontentKolektiv</span>
 		</a>
 
 		<!-- Desktop nav links — centered absolutely so they don't push CTA -->
