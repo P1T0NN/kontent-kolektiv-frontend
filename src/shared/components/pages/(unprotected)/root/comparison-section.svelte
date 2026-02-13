@@ -21,9 +21,7 @@
 <section class="py-28 bg-dark">
 	<div class="max-w-[1200px] mx-auto px-6">
 		<div class="text-center mb-16">
-			<span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-5 bg-dark-card border border-dark-border text-light-dim">
-				The New Standard
-			</span>
+			<p class="text-sm text-light-dim mb-3">The New Standard</p>
 			<h2 class="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-light">
 				The <span class="gradient-text">smarter choice</span> for UGC in Southeast Europe
 			</h2>

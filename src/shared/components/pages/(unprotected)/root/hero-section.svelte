@@ -12,21 +12,80 @@
 
 <section class="relative min-h-screen flex items-center justify-center pt-[120px] pb-20 md:pb-20 overflow-hidden">
 	<!-- Background -->
-	<div class="absolute inset-0 bg-linear-to-b from-dark via-[#0D0D2B] to-[#100D28]">
-		<div class="absolute inset-0 bg-[linear-gradient(rgba(108,99,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(108,99,255,0.04)_1px,transparent_1px)] bg-size-[60px_60px]"></div>
-		<div class="absolute -top-[200px] -right-[100px] w-[600px] h-[600px] rounded-full bg-primary blur-[120px] opacity-15"></div>
-		<div class="absolute -bottom-[100px] -left-[100px] w-[500px] h-[500px] rounded-full bg-secondary blur-[120px] opacity-[0.12]"></div>
+	<div class="absolute inset-0 bg-[#0a0810] overflow-hidden">
+
+		<!-- Base deep gradient — warm dark, not cold navy -->
+		<div class="absolute inset-0" style="background: radial-gradient(ellipse 120% 80% at 60% 20%, #1a0d2e 0%, #0a0810 55%, #060409 100%);"></div>
+
+		<!-- Primary ink smear — irregular, not a perfect circle -->
+		<div class="absolute" style="
+			top: -18%;
+			right: -8%;
+			width: 780px;
+			height: 520px;
+			background: radial-gradient(ellipse 60% 100% at 65% 30%, rgba(108,99,255,0.18) 0%, rgba(233,69,144,0.09) 45%, transparent 70%);
+			filter: blur(72px);
+			transform: rotate(-22deg) skewX(-8deg);
+			border-radius: 40% 60% 55% 45% / 35% 45% 55% 65%;
+		"></div>
+
+		<!-- Secondary ink smear — bottom left, different angle -->
+		<div class="absolute" style="
+			bottom: -12%;
+			left: -6%;
+			width: 620px;
+			height: 480px;
+			background: radial-gradient(ellipse 70% 90% at 35% 70%, rgba(233,69,144,0.13) 0%, rgba(108,99,255,0.07) 50%, transparent 70%);
+			filter: blur(80px);
+			transform: rotate(15deg) skewY(5deg);
+			border-radius: 55% 45% 40% 60% / 60% 40% 65% 35%;
+		"></div>
+
+		<!-- Tertiary mid-field glow — warm amber tint for depth -->
+		<div class="absolute" style="
+			top: 35%;
+			left: 20%;
+			width: 400px;
+			height: 280px;
+			background: radial-gradient(ellipse at 50% 50%, rgba(255,160,80,0.04) 0%, transparent 70%);
+			filter: blur(60px);
+			transform: rotate(-10deg);
+			border-radius: 50% 50% 60% 40% / 40% 60% 40% 60%;
+		"></div>
+
+		<!-- Light leak — diagonal streak across upper half -->
+		<div class="absolute" style="
+			top: -5%;
+			left: -10%;
+			right: 20%;
+			height: 60%;
+			background: linear-gradient(115deg, transparent 0%, transparent 40%, rgba(108,99,255,0.035) 48%, rgba(255,255,255,0.018) 52%, rgba(108,99,255,0.025) 56%, transparent 65%, transparent 100%);
+			transform: skewY(-5deg);
+		"></div>
+
+		<!-- Film grain overlay via SVG filter -->
+		<svg class="absolute inset-0 w-full h-full opacity-[0.55]" xmlns="http://www.w3.org/2000/svg">
+			<filter id="grain" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+				<feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch" result="noise"/>
+				<feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+				<feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="blend"/>
+				<feComposite in="blend" in2="SourceGraphic" operator="in"/>
+			</filter>
+			<rect width="100%" height="100%" filter="url(#grain)"/>
+		</svg>
+
+		<!-- Vignette — darkens corners for cinematic depth -->
+		<div class="absolute inset-0" style="background: radial-gradient(ellipse 85% 85% at 50% 50%, transparent 40%, rgba(0,0,0,0.55) 100%);"></div>
+
 	</div>
 
 	<!-- Content -->
 	<div class="relative text-center max-w-[900px] mx-auto px-6">
-		<div
-			class="inline-flex items-center gap-2 px-5 py-2 bg-dark-card border border-dark-border rounded-full text-[0.85rem] font-medium text-light-muted mb-8 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] {visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}"
+		<p
+			class="text-sm text-light-dim mb-6 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] {visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}"
 		>
-			<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
 			Leading UGC Agency in Southeast Europe
-		</div>
-
+		</p>
 		<h1
 			class="text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold text-light mb-6 leading-[1.1] tracking-tight transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100 {visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}"
 		>

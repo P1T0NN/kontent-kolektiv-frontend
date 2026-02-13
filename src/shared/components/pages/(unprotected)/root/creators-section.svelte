@@ -38,9 +38,7 @@
 <section id="creators" class="py-28 bg-dark">
 	<div class="max-w-[1200px] mx-auto px-6">
 		<div class="text-center mb-12">
-			<span class="inline-block px-4 py-1.5 bg-dark-card border border-dark-border rounded-full text-xs font-semibold text-light-dim uppercase tracking-widest mb-5">
-				Our Creators
-			</span>
+			<p class="text-sm text-light-dim mb-3">Our Creators</p>
 			<h2 class="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-light mb-4">
 				UGC starts with <span class="gradient-text">proven talent</span>
 			</h2>
