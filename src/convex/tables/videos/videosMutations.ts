@@ -63,3 +63,39 @@ export const deleteVideo = mutation({
 	}
 });
 
+export const changeVideoOrder = mutation({
+	args: {
+		id: v.id('videos'),
+		direction: v.union(v.literal('up'), v.literal('down'))
+	},
+	handler: async (ctx, args) => {
+		await requireAdmin(ctx);
+
+		const video = await ctx.db.get(args.id);
+
+		if (!video) {
+			return { 
+				success: false, 
+				message: 'Video not found' 
+			};
+		}
+
+		const all = await ctx.db.query('videos').withIndex('by_order').collect();
+		const idx = all.findIndex((v) => v._id === args.id);
+		if (idx < 0) return;
+
+		const swapIdx = args.direction === 'up' ? idx - 1 : idx + 1;
+		if (swapIdx < 0 || swapIdx >= all.length) return;
+
+		const other = all[swapIdx];
+
+		await ctx.db.patch(args.id, { order: other.order, updatedAt: Date.now() });
+		await ctx.db.patch(other._id, { order: video.order, updatedAt: Date.now() });
+
+		return { 
+			success: true, 
+			message: 'Video order changed successfully' 
+		};
+	}
+});
+

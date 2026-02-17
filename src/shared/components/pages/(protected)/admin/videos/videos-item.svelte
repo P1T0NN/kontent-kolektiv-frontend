@@ -1,7 +1,8 @@
 <script lang="ts">
     // COMPONENTS
     import * as Card from '@/shared/components/ui/card';
-    import Button from '@/shared/components/ui/button/button.svelte';
+    import DeleteVideoButton from './delete-video-button.svelte';
+	import ChangeOrderButton from './change-order-button.svelte';
     import Separator from '@/shared/components/ui/separator/separator.svelte';
 
     // TYPES
@@ -9,11 +10,8 @@
 
     // LUCIDE ICONS
     import ExternalLinkIcon from '@lucide/svelte/icons/external-link';
-    import ArrowUpIcon from '@lucide/svelte/icons/arrow-up';
-    import ArrowDownIcon from '@lucide/svelte/icons/arrow-down';
-	import DeleteVideoButton from './delete-video-button.svelte';
 
-    let { video }: { video: Doc<'videos'> } = $props();
+    let { video, isFirst = false, isLast = false }: { video: Doc<'videos'>; isFirst?: boolean; isLast?: boolean } = $props();
 
     const getPlatformColor = (platform: string) => {
 		const colors: Record<string, string> = {
@@ -87,12 +85,8 @@
             <div class="flex items-center justify-between gap-2">
                 <span class="text-xs text-muted-foreground">Order: <span class="font-mono font-semibold text-foreground">#{video.order}</span></span>
                 <div class="flex gap-1">
-                    <Button variant="outline" size="icon-sm" title="Move Up">
-                        <ArrowUpIcon class="h-3 w-3" />
-                    </Button>
-                    <Button variant="outline" size="icon-sm" title="Move Down">
-                        <ArrowDownIcon class="h-3 w-3" />
-                    </Button>
+                    <ChangeOrderButton videoId={video._id} direction="up" disabled={isFirst} />
+                    <ChangeOrderButton videoId={video._id} direction="down" disabled={isLast} />
                 </div>
             </div>
 

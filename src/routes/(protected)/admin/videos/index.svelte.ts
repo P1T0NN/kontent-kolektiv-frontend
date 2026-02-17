@@ -5,6 +5,7 @@ class VideosPageClass {
 
     public pendingStates = $state({
         deleteVideoIsPending: false,
+        changeVideoOrderIsPending: false,
     });
 }
 
