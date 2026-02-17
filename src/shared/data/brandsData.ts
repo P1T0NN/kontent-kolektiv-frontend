@@ -1,0 +1,1 @@
+export const brandsData = ['Bolt', 'Glovo', 'Wolt', 'eMag', 'Temu', 'Shein', 'FashionNova', 'Revolut'];

@@ -16,8 +16,7 @@ const schema = defineSchema({
 		phoneVerificationTime: v.optional(v.number()),
 
 		// Custom fields
-		role: v.union(v.literal('admin'), v.literal('user')),
-		credits: v.number()
+		role: v.union(v.literal('admin'), v.literal('user'))
 	}).index('email', ['email']),
 
 	// Audit logs table (enable via FEATURES.AUDIT_LOGS in features.ts)
@@ -31,7 +30,28 @@ const schema = defineSchema({
 	})
 		.index('by_user', ['userId'])
 		.index('by_action', ['action'])
-		.index('by_timestamp', ['timestamp'])
+		.index('by_timestamp', ['timestamp']),
+
+	videos: defineTable({
+		platform: v.union(
+			v.literal('youtube'),
+			v.literal('tiktok'),
+			v.literal('instagram'),
+			v.literal('vimeo'),
+			v.literal('other')
+		),
+		embedUrl: v.string(), // Direct embed URL from social platform
+		thumbnailUrl: v.optional(v.string()), // Custom thumbnail or auto-extracted
+		creatorName: v.optional(v.string()), // Display name for the creator
+		brandName: v.optional(v.string()), // Client brand featured
+		order: v.number(), // Display order in showcase
+		status: v.union(v.literal('published'), v.literal('draft')),
+		createdAt: v.number(),
+		updatedAt: v.number()
+	})
+		.index('by_status', ['status'])
+		.index('by_order', ['order'])
+		.index('by_status_and_order', ['status', 'order']),
 });
 
 export default schema;

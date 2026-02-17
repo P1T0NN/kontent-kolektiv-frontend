@@ -11,9 +11,13 @@
 import type * as auditLog from "../auditLog.js";
 import type * as auth from "../auth.js";
 import type * as features from "../features.js";
+import type * as helpers_requireAdmin from "../helpers/requireAdmin.js";
 import type * as http from "../http.js";
 import type * as rateLimiter from "../rateLimiter.js";
 import type * as tables_users_usersQueries from "../tables/users/usersQueries.js";
+import type * as tables_videos_videosMutations from "../tables/videos/videosMutations.js";
+import type * as tables_videos_videosQueries from "../tables/videos/videosQueries.js";
+import type * as utils_convex_videoEmbedUtils from "../utils/convex_videoEmbedUtils.js";
 
 import type {
   ApiFromModules,
@@ -25,9 +29,13 @@ declare const fullApi: ApiFromModules<{
   auditLog: typeof auditLog;
   auth: typeof auth;
   features: typeof features;
+  "helpers/requireAdmin": typeof helpers_requireAdmin;
   http: typeof http;
   rateLimiter: typeof rateLimiter;
   "tables/users/usersQueries": typeof tables_users_usersQueries;
+  "tables/videos/videosMutations": typeof tables_videos_videosMutations;
+  "tables/videos/videosQueries": typeof tables_videos_videosQueries;
+  "utils/convex_videoEmbedUtils": typeof utils_convex_videoEmbedUtils;
 }>;
 
 /**

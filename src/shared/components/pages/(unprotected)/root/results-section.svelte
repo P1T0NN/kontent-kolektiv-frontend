@@ -1,53 +1,19 @@
 <script lang="ts">
+	// CLASS
+	import { rootPageClass } from '@/routes/index.svelte';
+
+	// COMPONENTS
+	import DiagonalCutFromTopRightToBottomLeft from '@/shared/components/ui/page-transitions/diagonal-cut-from-top-right-to-bottom-left.svelte';
+
+	// DATA
+	import { testimonialsData } from '@/shared/data/testimonialsData';
+
 	// LUCIDE ICONS
 	import ChevronLeftIcon from '@lucide/svelte/icons/chevron-left';
 	import ChevronRightIcon from '@lucide/svelte/icons/chevron-right';
-
-	const testimonials = [
-		{
-			quote: "KontentKolektiv transformed our approach to the Balkan market. Their local creators produced content that felt genuinely native, and our ROAS improved dramatically. The UGC videos outperformed everything we had produced with traditional agencies.",
-			name: 'Stefan Petrov',
-			role: 'Head of Growth',
-			company: 'E-Commerce Brand',
-			stats: [
-				{ value: '180%', label: 'increase in ROAS' },
-				{ value: '3.2x', label: 'higher engagement rate' }
-			]
-		},
-		{
-			quote: "Working with KontentKolektiv allowed us to scale UGC production across 6 Balkan markets simultaneously. The creator matching was spot-on and turnaround times were incredibly fast. Our acquisition costs dropped significantly.",
-			name: 'Ana Markovic',
-			role: 'Marketing Director',
-			company: 'DTC Brand',
-			stats: [
-				{ value: '58%', label: 'drop in acquisition cost' },
-				{ value: '4x', label: 'more creative volume' }
-			]
-		},
-		{
-			quote: "The quality and authenticity of the UGC content from KontentKolektiv creators is unmatched in the region. Our TikTok campaigns saw massive improvements in hook rate and completion rate, driving real conversions.",
-			name: 'Dimitris Papadopoulos',
-			role: 'Performance Lead',
-			company: 'App Company',
-			stats: [
-				{ value: '+22%', label: 'higher CTR on TikTok' },
-				{ value: '12x', label: 'ROAS on top creative' }
-			]
-		}
-	];
-
-	let activeIndex = $state(0);
-
-	function next() {
-		activeIndex = (activeIndex + 1) % testimonials.length;
-	}
-
-	function prev() {
-		activeIndex = (activeIndex - 1 + testimonials.length) % testimonials.length;
-	}
 </script>
 
-<section id="results" class="py-28 bg-dark-surface">
+<section id="results" class="relative pt-28 pb-44 bg-dark-surface overflow-hidden">
 	<div class="max-w-[1200px] mx-auto px-6">
 		<div class="text-center mb-16">
 			<p class="text-sm text-light-dim mb-3">Success Stories</p>
@@ -57,8 +23,8 @@
 		</div>
 
 		<div class="max-w-[900px] mx-auto relative">
-			{#each testimonials as testimonial, i}
-				{#if i === activeIndex}
+			{#each testimonialsData as testimonial, i}
+				{#if i === rootPageClass.pageStates.resultsActiveIndex}
 					<div class="bg-dark border border-dark-border rounded-[28px] overflow-hidden animate-[fadeIn_0.4s_ease]">
 						<div class="p-8 md:p-12">
 							<blockquote class="text-lg text-light-muted leading-[1.8] mb-8 italic">
@@ -90,23 +56,23 @@
 			<div class="flex items-center justify-center gap-5 mt-8">
 				<button
 					class="w-11 h-11 rounded-full bg-dark border border-dark-border text-light-muted flex items-center justify-center hover:border-light-dim hover:text-light transition-all duration-200"
-					onclick={prev}
+					onclick={() => rootPageClass.prevResultsIndex()}
 					aria-label="Previous testimonial"
 				>
 					<ChevronLeftIcon class="w-5 h-5" />
 				</button>
 				<div class="flex gap-2">
-					{#each testimonials as _, i}
+					{#each testimonialsData as _, i}
 						<button
-							class="h-2.5 rounded-full transition-all duration-200 {i === activeIndex ? 'w-7 bg-gradient-brand' : 'w-2.5 bg-dark-border'}"
-							onclick={() => activeIndex = i}
+							class="h-2.5 rounded-full transition-all duration-200 {i === rootPageClass.pageStates.resultsActiveIndex ? 'w-7 bg-gradient-brand' : 'w-2.5 bg-dark-border'}"
+							onclick={() => rootPageClass.pageStates.resultsActiveIndex = i}
 							aria-label="Go to testimonial {i + 1}"
 						></button>
 					{/each}
 				</div>
 				<button
 					class="w-11 h-11 rounded-full bg-dark border border-dark-border text-light-muted flex items-center justify-center hover:border-light-dim hover:text-light transition-all duration-200"
-					onclick={next}
+					onclick={() => rootPageClass.nextResultsIndex()}
 					aria-label="Next testimonial"
 				>
 					<ChevronRightIcon class="w-5 h-5" />
@@ -114,4 +80,6 @@
 			</div>
 		</div>
 	</div>
+
+	<DiagonalCutFromTopRightToBottomLeft fillClass="text-dark" />
 </section>

@@ -84,21 +84,22 @@
 		<p
 			class="text-sm text-light-dim mb-6 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] {visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}"
 		>
-			Leading UGC Agency in Southeast Europe
+			The UGC agency behind 500+ campaigns across the Balkans
 		</p>
 		<h1
 			class="text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold text-light mb-6 leading-[1.1] tracking-tight transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100 {visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}"
 		>
-			Authentic UGC That
-			<span class="gradient-text">Drives Growth</span>
+			UGC Ads That
+			<span class="gradient-text">Actually Convert</span>
 			Across the Balkans
 		</h1>
 
 		<p
 			class="text-[clamp(1rem,2vw,1.2rem)] text-light-muted max-w-[680px] mx-auto mb-10 leading-relaxed transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] delay-200 {visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}"
 		>
-			We create high-impact User-Generated Content videos optimized for TikTok,
-			Instagram Reels, YouTube Shorts and Meta Ads — serving top brands across 12+ countries.
+			Scaling paid ads in Southeast Europe is hard. You need creators who speak
+			the language, understand the culture, and make content that doesn't feel
+			like an ad. That's what we do.
 		</p>
 
 		<div

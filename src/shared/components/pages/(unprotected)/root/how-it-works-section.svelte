@@ -26,7 +26,6 @@
 <section class="py-28 bg-dark-surface">
 	<div class="max-w-[1200px] mx-auto px-6">
 		<div class="text-center mb-[72px]">
-			<p class="text-sm text-light-dim mb-3">How It Works</p>
 			<h2 class="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-light">
 				From brief to <span class="gradient-text">live campaign</span> in days
 			</h2>

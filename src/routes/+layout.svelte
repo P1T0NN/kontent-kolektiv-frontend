@@ -1,6 +1,9 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '@/shared/lib/assets/favicon.svg';
+	import favicon from '@/shared/lib/assets/favicon.ico';
+
+	// SVELTEKIT IMPORTS
+	import { page } from '$app/stores';
 
 	// LIBRARIES
 	import { setupConvexAuth, useAuth } from '@mmailaender/convex-auth-svelte/sveltekit';
@@ -16,6 +19,8 @@
 	import Footer from '@/shared/components/ui/footer/footer.svelte';
 
 	let { children, data } = $props();
+
+	const isAdminRoute = $derived($page.url.pathname.includes('/admin/'));
 
 	setupConvexAuth({ getServerState: () => data.authState });
 
@@ -34,7 +39,11 @@
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
-<Header />
+{#if !isAdminRoute}
+	<Header />
+{/if}
 {@render children()}
-<Footer />
+{#if !isAdminRoute}
+	<Footer />
+{/if}
 <Toaster richColors />

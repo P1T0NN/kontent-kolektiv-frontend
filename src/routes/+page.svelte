@@ -1,20 +1,30 @@
 <script lang="ts">
+	// SVELTEKIT IMPORTS
+	import { onDestroy } from 'svelte';
+
+	// CLASS
+	import { rootPageClass } from '@/routes/index.svelte';
+
+	// COMPONENTS
 	import HeroSection from '@/shared/components/pages/(unprotected)/root/hero-section.svelte';
 	import TrustBarSection from '@/shared/components/pages/(unprotected)/root/trust-bar-section.svelte';
 	import ServicesSection from '@/shared/components/pages/(unprotected)/root/services-section.svelte';
-	import WhyChooseUsSection from '@/shared/components/pages/(unprotected)/root/why-choose-us-section.svelte';
-	import CreatorsSection from '@/shared/components/pages/(unprotected)/root/creators-section.svelte';
+	import VideoShowcaseSection from '@/shared/components/pages/(unprotected)/root/video-showcase-section/video-showcase-section.svelte';
 	import HowItWorksSection from '@/shared/components/pages/(unprotected)/root/how-it-works-section.svelte';
 	import ResultsSection from '@/shared/components/pages/(unprotected)/root/results-section.svelte';
 	import ComparisonSection from '@/shared/components/pages/(unprotected)/root/comparison-section.svelte';
-	import CoverageSection from '@/shared/components/pages/(unprotected)/root/coverage-section.svelte';
+	import FaqSection from '@/shared/components/pages/(unprotected)/root/faq-section.svelte';
 	import CtaSection from '@/shared/components/pages/(unprotected)/root/cta-section.svelte';
 	import Reveal from '@/shared/components/ui/reveal/reveal.svelte';
+	
+	onDestroy(() => {
+		rootPageClass.cleanup();
+	});
 </script>
 
 <svelte:head>
-	<title>KontentKolektiv - Leading UGC Marketing Agency in Southeast Europe</title>
-	<meta name="description" content="Authentic User-Generated Content (UGC) That Drives Engagement, Builds Trust & Boosts Sales. Serving top brands across Bulgaria, Greece, Serbia, Hungary, Croatia, and more." />
+	<title>KontentKolektiv - UGC Ads That Convert Across Southeast Europe</title>
+	<meta name="description" content="The UGC agency behind high-performing ad campaigns across the Balkans. Native-language creators, platform-native content, real results. Serving brands across 12+ countries." />
 </svelte:head>
 
 <main>
@@ -25,20 +35,14 @@
 	</Reveal>
 
 	<Reveal>
+		<VideoShowcaseSection />
+	</Reveal>
+
+	<Reveal>
 		<ServicesSection />
 	</Reveal>
 
-	<Reveal>
-		<WhyChooseUsSection />
-	</Reveal>
-
-	<Reveal>
-		<CreatorsSection />
-	</Reveal>
-
-	<Reveal>
-		<HowItWorksSection />
-	</Reveal>
+	<HowItWorksSection />
 
 	<Reveal>
 		<ResultsSection />
@@ -49,7 +53,7 @@
 	</Reveal>
 
 	<Reveal>
-		<CoverageSection />
+		<FaqSection />
 	</Reveal>
 
 	<Reveal>

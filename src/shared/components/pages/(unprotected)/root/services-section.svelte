@@ -1,76 +1,112 @@
 <script lang="ts">
+	// COMPONENTS
+	import WaveBottomTransition from '@/shared/components/ui/page-transitions/wave-bottom-transition.svelte';
+
+	// DATA
+	import { servicesData } from '@/shared/data/servicesData';
+
 	// LUCIDE ICONS
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
-
-	const services = [
-		{
-			tag: 'UGC Production',
-			title: 'Scroll-stopping content at scale',
-			description: 'We connect your brand with authentic creators across Southeast Europe who produce native-feeling UGC videos that resonate with local audiences and drive conversions.',
-			features: [
-				{ label: '200+ Creators', desc: 'Vetted talent across 12 countries' },
-				{ label: 'Platform-Native', desc: 'Optimized for TikTok, Reels & Shorts' },
-				{ label: 'Fast Delivery', desc: 'From brief to final cut in days' },
-				{ label: 'Full Rights', desc: 'Complete usage rights included' },
-			],
-			accent: 'primary'
-		},
-		{
-			tag: 'Performance Creative',
-			title: 'The data engine behind your ads',
-			description: 'Our performance-first approach means every piece of content is designed to convert. We analyze what works across markets, test variations, and scale winners.',
-			features: [
-				{ label: 'A/B Testing', desc: 'Data-backed creative variations' },
-				{ label: 'Hook Optimization', desc: 'Maximize thumb-stop rate' },
-				{ label: 'Ad-Ready', desc: 'Delivered in every format you need' },
-				{ label: 'Analytics', desc: 'Performance insights per creative' },
-			],
-			accent: 'secondary'
-		}
-	];
 </script>
 
-<section id="services" class="py-28 bg-dark">
-	<div class="max-w-[1200px] mx-auto px-6">
+<section id="services" class="relative pt-32 pb-48 bg-dark overflow-hidden">
+	<div class="relative max-w-[1200px] mx-auto px-6">
 		<!-- Header -->
-		<div class="text-center mb-16">
-			<p class="text-sm text-light-dim mb-3">What We Do</p>
-			<h2 class="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-light mb-4">
-				Launch with creators.<br /><span class="gradient-text">Scale with data.</span>
+		<div class="text-center mb-24 relative z-10">
+			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-sm">
+				<span class="w-1.5 h-1.5 rounded-full bg-gradient-brand animate-pulse"></span>
+				<span class="text-xs font-medium text-light-dim uppercase tracking-wider">What We Do</span>
+			</div>
+			
+			<h2 class="text-[clamp(2.5rem,5vw,4rem)] font-extrabold text-light mb-6 leading-[1.1] tracking-tight">
+				Launch with creators.<br />
+				<span class="text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-accent animate-gradient-x">Scale with data.</span>
 			</h2>
-			<p class="text-lg text-light-muted max-w-[600px] mx-auto leading-relaxed">
+			
+			<p class="text-lg md:text-xl text-light-muted max-w-[640px] mx-auto leading-relaxed">
 				KontentKolektiv is the first UGC marketing stack in Southeast Europe, combining local creator talent with performance-driven creative production.
 			</p>
 		</div>
 
-		<!-- Cards -->
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-			{#each services as service}
-				<div class="group bg-dark-surface border border-dark-border rounded-[20px] p-7 md:p-10 transition-all duration-300 hover:-translate-y-1 {service.accent === 'primary' ? 'hover:border-primary/30' : 'hover:border-secondary/30'}">
-					<div class="mb-5">
-						<span class="inline-block px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide {service.accent === 'primary' ? 'bg-primary/12 text-primary' : 'bg-secondary/12 text-secondary'}">
-							{service.tag}
-						</span>
+		<!-- Services Layout -->
+		<div class="flex flex-col gap-20 lg:gap-32">
+			{#each servicesData as service, i}
+				<!-- Service Card Container -->
+				<div class="group relative flex flex-col lg:flex-row items-center gap-10 lg:gap-20 {i % 2 === 1 ? 'lg:flex-row-reverse' : ''}">
+					
+					<!-- Content Side -->
+					<div class="flex-1 relative z-10 text-center lg:text-left">
+						<div class="inline-block mb-4">
+							<span class="text-xs font-bold uppercase tracking-[0.2em] text-transparent bg-clip-text bg-linear-to-r {service.gradient}">
+								0{i + 1} — {service.tag}
+							</span>
+						</div>
+						
+						<h3 class="text-4xl md:text-5xl font-bold text-light mb-6 font-display leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:{service.gradient} transition-all duration-300">
+							{service.title}
+						</h3>
+						
+						<p class="text-lg text-light-muted leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+							{service.description}
+						</p>
+
+						<a
+							href="#contact"
+							class="inline-flex items-center gap-2 text-sm font-bold text-white border-b border-white/20 pb-1 hover:border-white hover:gap-3 transition-all duration-300"
+						>
+							Learn more
+							<ArrowRightIcon class="w-4 h-4" />
+						</a>
 					</div>
-					<h3 class="text-[1.6rem] font-bold text-light mb-3 capitalize">{service.title}</h3>
-					<p class="text-[0.95rem] text-light-muted leading-relaxed mb-7">{service.description}</p>
-					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-7">
-						{#each service.features as feature}
-							<div class="flex flex-col gap-1 p-3.5 bg-dark-card rounded-xl border border-transparent hover:border-dark-border transition-colors duration-200">
-								<span class="text-[0.85rem] font-semibold text-light">{feature.label}</span>
-								<span class="text-[0.78rem] text-light-dim">{feature.desc}</span>
+
+					<!-- Visual Side (Feature Grid) -->
+					<div class="flex-1 w-full max-w-[500px] lg:max-w-none">
+						<div class="relative">
+							<!-- Abstract Background Shape behind grid -->
+							<div class="absolute inset-0 bg-linear-to-br {service.gradient} opacity-5 blur-3xl rounded-full transform scale-110 group-hover:scale-125 transition-transform duration-700"></div>
+							
+							<!-- Glass Card Container -->
+							<div class="relative grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-3xl bg-white/2 border border-white/5 backdrop-blur-sm group-hover:border-white/10 transition-colors duration-500">
+								{#each service.features as feature}
+									<div class="bg-dark/40 border border-white/5 rounded-2xl p-5 hover:bg-white/5 hover:border-white/10 transition-all duration-300 group/feature">
+										<div class="w-10 h-10 rounded-xl bg-linear-to-br {service.gradient} p-px mb-4 group-hover/feature:scale-110 transition-transform duration-300">
+											<div class="w-full h-full rounded-xl bg-dark flex items-center justify-center">
+												<svelte:component this={feature.icon} class="w-5 h-5 text-white/80 group-hover/feature:text-white transition-colors" />
+											</div>
+										</div>
+										<h4 class="text-base font-bold text-light mb-1">{feature.label}</h4>
+										<p class="text-sm text-light-dim leading-snug">{feature.desc}</p>
+									</div>
+								{/each}
 							</div>
-						{/each}
+
+							<!-- Decorative Elements -->
+							<div class="absolute -top-4 -right-4 w-24 h-24 border border-white/5 rounded-full border-dashed animate-spin-slow pointer-events-none opacity-20"></div>
+							<div class="absolute -bottom-4 -left-4 w-16 h-16 bg-linear-to-br {service.gradient} rounded-full blur-2xl opacity-20 animate-pulse pointer-events-none"></div>
+						</div>
 					</div>
-					<a
-						href="#contact"
-						class="inline-flex items-center gap-1.5 text-sm font-semibold hover:gap-2.5 transition-all duration-200 {service.accent === 'primary' ? 'text-primary' : 'text-secondary'}"
-					>
-						Learn more
-						<ArrowRightIcon class="w-4 h-4" />
-					</a>
+					
 				</div>
 			{/each}
 		</div>
 	</div>
+
+	<WaveBottomTransition fillClass="text-dark-surface" />
 </section>
+
+<style>
+	.animate-spin-slow {
+		animation: spin 12s linear infinite;
+	}
+	@keyframes spin {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+	.animate-pulse-slow {
+		animation: pulse 6s ease-in-out infinite;
+	}
+	@keyframes pulse {
+		0%, 100% { opacity: 0.1; }
+		50% { opacity: 0.2; }
+	}
+</style>
