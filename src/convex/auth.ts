@@ -3,7 +3,8 @@ import { convexAuth } from '@convex-dev/auth/server';
 import Google from '@auth/core/providers/google';
 
 const ADMIN_EMAILS = [
-	"ognjen.tapuskovic@gmail.com"
+	"ognjen.tapuskovic@gmail.com",
+	"hello@krassimirdobrev.com"
 ] as const;
 
 export const { auth, signIn, signOut, store, isAuthenticated } = convexAuth({
