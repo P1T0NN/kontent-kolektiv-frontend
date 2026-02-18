@@ -38,7 +38,6 @@ export const createVideo = mutation({
 			platform,
 			embedUrl,
 			order,
-			createdAt: now,
 			updatedAt: now
 		});
 

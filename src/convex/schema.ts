@@ -46,7 +46,6 @@ const schema = defineSchema({
 		brandName: v.optional(v.string()), // Client brand featured
 		order: v.number(), // Display order in showcase
 		status: v.union(v.literal('published'), v.literal('draft')),
-		createdAt: v.number(),
 		updatedAt: v.number()
 	})
 		.index('by_status', ['status'])
