@@ -8,6 +8,9 @@
 	import * as Sidebar from '@/shared/components/ui/sidebar/index.js';
 	import LogoutButton from '../logout-button/logout-button.svelte';
 
+	// UTILS
+	import { getInitials } from '@/shared/utils/textUtils.js';
+
 	// LUCIDE ICONS
 	import MoreVerticalIcon from '@lucide/svelte/icons/more-vertical';
 
@@ -28,7 +31,7 @@
 					>
 						<Avatar.Root class="size-8 rounded-lg grayscale">
 							<Avatar.Image src={currentUser?.image} alt={currentUser?.name} />
-							<Avatar.Fallback class="rounded-lg">CN</Avatar.Fallback>
+							<Avatar.Fallback class="rounded-lg">{getInitials(currentUser?.name)}</Avatar.Fallback>
 						</Avatar.Root>
 
 						<div class="grid flex-1 text-start text-sm leading-tight">
@@ -53,7 +56,7 @@
 					<div class="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
 						<Avatar.Root class="size-8 rounded-lg">
 							<Avatar.Image src={currentUser?.image} alt={currentUser?.name} />
-							<Avatar.Fallback class="rounded-lg">CN</Avatar.Fallback>
+							<Avatar.Fallback class="rounded-lg">{getInitials(currentUser?.name)}</Avatar.Fallback>
 						</Avatar.Root>
 
 						<div class="grid flex-1 text-start text-sm leading-tight">
