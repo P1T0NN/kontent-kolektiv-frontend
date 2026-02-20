@@ -11,15 +11,15 @@
 </script>
 
 <section class="py-28 bg-dark">
-	<div class="max-w-[1200px] mx-auto px-6">
+	<div class="max-w-[1100px] mx-auto px-6">
 		<div class="text-center mb-16">
 			<p class="text-sm text-light-dim mb-3">The New Standard</p>
 			<h2 class="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-light">
-				The <span class="gradient-text">smarter choice</span> for UGC in Southeast Europe
+				The <span class="gradient-text">smarter choice</span> for UGC in Bulgaria & Southeast Europe
 			</h2>
 		</div>
 
-		<div class="max-w-[800px] mx-auto rounded-[28px] overflow-hidden border border-dark-border bg-dark-surface">
+		<div class="rounded-[28px] overflow-hidden border border-dark-border bg-dark-surface">
 			<Table.Root class="border-0">
 				<Table.Header>
 					<Table.Row class="border-b border-dark-border bg-dark-card hover:bg-dark-card">
@@ -64,6 +64,31 @@
 					{/each}
 				</Table.Body>
 			</Table.Root>
+		</div>
+
+		<!-- Proven Numbers -->
+		<div class="mt-12">
+			<p class="text-xs font-semibold text-light-dim uppercase tracking-[0.12em] text-center mb-5">Proven Numbers Marketers Love</p>
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+				<div class="flex flex-col gap-2 px-5 py-5 rounded-2xl bg-dark-surface border border-dark-border hover:border-primary/20 transition-colors duration-300">
+					<div class="flex items-baseline gap-1">
+						<span class="text-[1.8rem] font-extrabold gradient-text font-display leading-none">8–13%</span>
+					</div>
+					<p class="text-[0.78rem] text-light-dim leading-relaxed">Average engagement for UGC, vs just 1–3% for traditional branded videos</p>
+				</div>
+				<div class="flex flex-col gap-2 px-5 py-5 rounded-2xl bg-dark-surface border border-dark-border hover:border-primary/20 transition-colors duration-300">
+					<div class="flex items-baseline gap-1">
+						<span class="text-[1.8rem] font-extrabold gradient-text font-display leading-none">70%</span>
+					</div>
+					<p class="text-[0.78rem] text-light-dim leading-relaxed">of Gen Z say they try products recommended by peers over traditional ads</p>
+				</div>
+				<div class="flex flex-col gap-2 px-5 py-5 rounded-2xl bg-dark-surface border border-dark-border hover:border-primary/20 transition-colors duration-300">
+					<div class="flex items-baseline gap-1">
+						<span class="text-[1.8rem] font-extrabold gradient-text font-display leading-none">2–3x</span>
+					</div>
+					<p class="text-[0.78rem] text-light-dim leading-relaxed">Higher awareness from daily authentic posts vs weekly branded content</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

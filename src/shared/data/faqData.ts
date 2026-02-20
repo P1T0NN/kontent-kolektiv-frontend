@@ -21,6 +21,6 @@ export const faqsData = [
     },
     {
         question: 'Which countries and languages do you cover?',
-        answer: 'We have vetted creators across 12+ Southeast European markets including Bulgaria, Greece, Serbia, Croatia, Romania, Hungary, Slovenia, Albania, Bosnia, Montenegro, North Macedonia, and Kosovo. All content is produced in the native language of each market.'
+        answer: 'We have vetted creators across 8 Southeast European markets: Bulgaria, Greece, Serbia, Croatia, Hungary, Romania, North Macedonia, and Albania. All content is produced in the native language of each market.'
     },
 ];

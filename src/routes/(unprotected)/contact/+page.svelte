@@ -10,7 +10,7 @@
 </svelte:head>
 
 <main class="relative min-h-screen pt-32 pb-20 bg-dark overflow-hidden">
-	<div class="relative max-w-[1200px] mx-auto px-6">
+	<div class="relative max-w-[1100px] mx-auto px-6">
 		<h1 class="text-center text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold text-light mb-16 leading-tight font-display">
 			Get in Touch
 		</h1>

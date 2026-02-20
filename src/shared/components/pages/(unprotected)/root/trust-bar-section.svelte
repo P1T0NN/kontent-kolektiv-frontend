@@ -4,7 +4,7 @@
 </script>
 
 <section class="py-12 border-t border-b border-dark-border bg-dark-surface overflow-hidden">
-	<div class="max-w-[1200px] mx-auto px-6">
+	<div class="max-w-[1100px] mx-auto px-6">
 		<p class="text-center text-xs font-medium text-light-dim uppercase tracking-[0.12em] mb-7">
 			Trusted by leading brands across Southeast Europe
 		</p>

@@ -30,7 +30,7 @@
 </script>
 
 <section class="py-28 bg-dark-surface">
-	<div class="max-w-[1200px] mx-auto px-6">
+	<div class="max-w-[1100px] mx-auto px-6">
 		<div class="text-center mb-16">
 			<p class="text-sm text-light-dim mb-3">Why KontentKolektiv</p>
 			<h2 class="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-light mb-4">

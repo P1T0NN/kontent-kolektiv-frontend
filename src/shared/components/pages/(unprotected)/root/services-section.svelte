@@ -10,21 +10,18 @@
 </script>
 
 <section id="services" class="relative pt-32 pb-48 bg-dark overflow-hidden">
-	<div class="relative max-w-[1200px] mx-auto px-6">
+	<div class="relative max-w-[1100px] mx-auto px-6">
 		<!-- Header -->
 		<div class="text-center mb-24 relative z-10">
-			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-sm">
-				<span class="w-1.5 h-1.5 rounded-full bg-gradient-brand animate-pulse"></span>
-				<span class="text-xs font-medium text-light-dim uppercase tracking-wider">What We Do</span>
-			</div>
+			<p class="text-sm text-light-dim mb-6 uppercase tracking-wider">What We Do</p>
 			
 			<h2 class="text-[clamp(2.5rem,5vw,4rem)] font-extrabold text-light mb-6 leading-[1.1] tracking-tight">
 				Launch with creators.<br />
-				<span class="text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-accent animate-gradient-x">Scale with data.</span>
+				<span class="text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-accent animate-gradient-x">Amplify your brand story.</span>
 			</h2>
 			
 			<p class="text-lg md:text-xl text-light-muted max-w-[640px] mx-auto leading-relaxed">
-				KontentKolektiv is the first UGC marketing stack in Southeast Europe, combining local creator talent with performance-driven creative production.
+				KontentKolektiv is the first UGC network in Southeast Europe, combining local creator talent with authentic storytelling that builds trust, awareness, and brand recall.
 			</p>
 		</div>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	// CONFIG
 	import { UNPROTECTED_PAGE_ENDPOINTS, COMPANY_DATA, ADMIN_PAGE_ENDPOINTS } from '@/shared/constants';
-	
+
 	// CLASSES
 	import { headerClass } from './header.svelte.ts';
 	import { usersClass } from '@/features/users/classes/users-class.svelte';
@@ -10,36 +10,16 @@
 	import HeaderMobile from './header-mobile.svelte';
 	import HeaderMobileButton from './header-mobile-button.svelte';
 
-	// LUCIDE ICONS
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
-	import BuildingIcon from '@lucide/svelte/icons/building-2';
-	import VideoIcon from '@lucide/svelte/icons/video';
-
-	let ctaOpen = $state(false);
-	let ctaRef: HTMLDivElement;
-
 	function handleScroll() {
 		headerClass.scrolled = window.scrollY > 20;
 	}
 
-	function handleClickOutside(e: MouseEvent) {
-		if (ctaRef && !ctaRef.contains(e.target as Node)) {
-			ctaOpen = false;
-		}
-	}
-
 	$effect(() => {
 		window.addEventListener('scroll', handleScroll);
-		document.addEventListener('mousedown', handleClickOutside);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-			document.removeEventListener('mousedown', handleClickOutside);
-		};
+		return () => window.removeEventListener('scroll', handleScroll);
 	});
 </script>
 
-<!-- Floating pill nav — Billo-style island -->
 <nav class="fixed top-0 left-0 right-0 z-1000 flex justify-center pt-5 transition-all duration-300 {headerClass.scrolled ? 'pt-3' : ''}">
 	<div
 		class="relative flex items-center justify-between px-5 py-3 rounded-2xl transition-all duration-300 max-w-[1100px] w-[calc(100%-2rem)]
@@ -53,7 +33,7 @@
 			<span class="text-[1rem] font-bold text-white/90 tracking-tight font-display">{COMPANY_DATA.COMPANY_NAME}</span>
 		</a>
 
-		<!-- Desktop nav links — centered absolutely so they don't push CTA -->
+		<!-- Desktop nav links -->
 		<div class="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
 			{#each [
 				{ href: UNPROTECTED_PAGE_ENDPOINTS.SERVICES, label: 'Services' },
@@ -70,8 +50,8 @@
 			{/each}
 		</div>
 
-		<!-- Right: Dashboard (admin) + Split CTA -->
-		<div class="hidden md:flex items-center gap-3 shrink-0">
+		<!-- Right: Dashboard (admin) + CTAs -->
+		<div class="hidden md:flex items-center gap-2.5 shrink-0">
 			{#if usersClass.currentUser?.role === 'admin'}
 				<a
 					href={ADMIN_PAGE_ENDPOINTS.VIDEOS}
@@ -80,61 +60,19 @@
 					Dashboard
 				</a>
 			{/if}
-			<!-- Split CTA dropdown — Billo style -->
-			<div class="relative" bind:this={ctaRef}>
-				<div class="flex items-center rounded-full bg-gradient-brand overflow-hidden shadow-[0_2px_20px_rgba(233,69,144,0.25)]">
-					<a
-						href={UNPROTECTED_PAGE_ENDPOINTS.CONTACT}
-						class="pl-5 pr-3 py-2.5 text-[0.82rem] font-semibold text-white hover:brightness-110 transition-all duration-150 whitespace-nowrap"
-					>
-						Start a Campaign
-					</a>
-					<button
-						onclick={() => ctaOpen = !ctaOpen}
-						aria-label="More options"
-						class="pr-3 pl-2 py-2.5 border-l border-white/20 hover:brightness-110 transition-all duration-150 flex items-center bg-transparent"
-					>
-						<ChevronDownIcon class="w-3.5 h-3.5 text-white transition-transform duration-200 {ctaOpen ? 'rotate-180' : ''}" />
-					</button>
-				</div>
 
-				<!-- Dropdown panel -->
-				{#if ctaOpen}
-					<div class="absolute right-0 top-[calc(100%+10px)] w-56 rounded-2xl bg-[#131021] border border-white/8 shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden">
-						<div class="p-1.5">
-							<a
-								href={UNPROTECTED_PAGE_ENDPOINTS.CONTACT}
-								onclick={() => { ctaOpen = false; }}
-								class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-white/6 transition-colors duration-150 group"
-							>
-								<div class="w-8 h-8 rounded-lg bg-[rgba(108,99,255,0.15)] flex items-center justify-center shrink-0">
-									<BuildingIcon class="w-4 h-4 text-primary" />
-								</div>
-								<div>
-									<p class="text-[0.82rem] font-semibold text-white/90 group-hover:text-white transition-colors">I'm a brand</p>
-									<p class="text-[0.72rem] text-white/40">Connect with creators</p>
-								</div>
-								<ArrowRightIcon class="w-3.5 h-3.5 text-white/25 ml-auto group-hover:text-white/60 group-hover:translate-x-0.5 transition-all" />
-							</a>
-							
-							<a
-								href={UNPROTECTED_PAGE_ENDPOINTS.CONTACT}
-								onclick={() => { ctaOpen = false; }}
-								class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-white/6 transition-colors duration-150 group"
-							>
-								<div class="w-8 h-8 rounded-lg bg-[rgba(233,69,144,0.15)] flex items-center justify-center shrink-0">
-									<VideoIcon class="w-4 h-4 text-secondary" />
-								</div>
-								<div>
-									<p class="text-[0.82rem] font-semibold text-white/90 group-hover:text-white transition-colors">I'm a creator</p>
-									<p class="text-[0.72rem] text-white/40">Monetize your content</p>
-								</div>
-								<ArrowRightIcon class="w-3.5 h-3.5 text-white/25 ml-auto group-hover:text-white/60 group-hover:translate-x-0.5 transition-all" />
-							</a>
-						</div>
-					</div>
-				{/if}
-			</div>
+			<a
+				href={UNPROTECTED_PAGE_ENDPOINTS.HIRE_CREATORS}
+				class="px-4 py-2.5 text-[0.82rem] font-semibold text-white/80 hover:text-white border border-white/12 hover:border-white/25 hover:bg-white/5 rounded-full transition-all duration-150 whitespace-nowrap"
+			>
+				Hire Creators
+			</a>
+			<a
+				href={UNPROTECTED_PAGE_ENDPOINTS.BECOME_A_CREATOR}
+				class="px-4 py-2.5 text-[0.82rem] font-semibold text-white bg-gradient-brand rounded-full shadow-[0_2px_16px_rgba(233,69,144,0.25)] hover:shadow-[0_4px_24px_rgba(233,69,144,0.4)] hover:brightness-110 transition-all duration-150 whitespace-nowrap"
+			>
+				Become a Creator
+			</a>
 		</div>
 
 		<HeaderMobileButton />

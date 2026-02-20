@@ -10,7 +10,7 @@
 </script>
 
 <section id="faq" class="py-28 bg-dark-surface">
-	<div class="max-w-[800px] mx-auto px-6">
+	<div class="max-w-[1100px] mx-auto px-6">
 		<div class="text-center mb-14">
 			<p class="text-sm text-light-dim mb-3">FAQ</p>
 			<h2 class="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-light">

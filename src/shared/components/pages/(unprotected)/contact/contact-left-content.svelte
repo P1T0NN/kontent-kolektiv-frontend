@@ -1,4 +1,7 @@
 <script lang="ts">
+	// CONFIG
+	import { COMPANY_DATA } from '@/shared/constants';
+
 	// LUCIDE ICONS
 	import MailIcon from '@lucide/svelte/icons/mail';
 	import MapPinIcon from '@lucide/svelte/icons/map-pin';
@@ -20,7 +23,7 @@
             </div>
             <div>
                 <h3 class="text-base font-semibold text-light mb-1">Email Us</h3>
-                <a href="mailto:hello@kontentkolektiv.com" class="text-light-dim hover:text-white transition-colors">hello@kontentkolektiv.com</a>
+                <a href={"mailto:" + COMPANY_DATA.EMAIL} class="text-light-dim hover:text-white transition-colors">{COMPANY_DATA.EMAIL}</a>
             </div>
         </div>
         

@@ -7,7 +7,7 @@
 
 	// COMPONENTS
 	import HeroSection from '@/shared/components/pages/(unprotected)/root/hero-section.svelte';
-	import TrustBarSection from '@/shared/components/pages/(unprotected)/root/trust-bar-section.svelte';
+
 	import ServicesSection from '@/shared/components/pages/(unprotected)/root/services-section.svelte';
 	import VideoShowcaseSection from '@/shared/components/pages/(unprotected)/root/video-showcase-section/video-showcase-section.svelte';
 	import HowItWorksSection from '@/shared/components/pages/(unprotected)/root/how-it-works-section.svelte';
@@ -23,16 +23,12 @@
 </script>
 
 <svelte:head>
-	<title>KontentKolektiv - UGC Ads That Convert Across Southeast Europe</title>
-	<meta name="description" content="The UGC agency behind high-performing ad campaigns across the Balkans. Native-language creators, platform-native content, real results. Serving brands across 12+ countries." />
+	<title>KontentKolektiv – UGC Content That Connects Across Bulgaria & Southeast Europe</title>
+	<meta name="description" content="Leading UGC Marketing Agency in Bulgaria and Southeast Europe. Authentic content that builds trust, engages audiences, and grows your brand. 8 countries, 200+ creators." />
 </svelte:head>
 
 <main>
 	<HeroSection />
-
-	<Reveal>
-		<TrustBarSection />
-	</Reveal>
 
 	<Reveal>
 		<VideoShowcaseSection />

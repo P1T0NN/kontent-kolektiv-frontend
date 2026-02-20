@@ -6,7 +6,7 @@
 </script>
 
 <section id="work" class="py-28 bg-dark-surface">
-	<div class="max-w-[1200px] mx-auto px-6">
+	<div class="max-w-[1100px] mx-auto px-6">
 		<div class="text-center mb-14">
 			<Skeleton class="h-4 w-20 mx-auto mb-3" />
 			<Skeleton class="h-10 w-[clamp(12rem,30vw,18rem)] mx-auto mb-4" />

@@ -30,6 +30,8 @@
             { href: UNPROTECTED_PAGE_ENDPOINTS.WORK, label: 'Work' },
             { href: UNPROTECTED_PAGE_ENDPOINTS.RESULTS, label: 'Results' },
             { href: UNPROTECTED_PAGE_ENDPOINTS.FAQ, label: 'FAQ' },
+            { href: UNPROTECTED_PAGE_ENDPOINTS.HIRE_CREATORS, label: 'Hire Creators' },
+            { href: UNPROTECTED_PAGE_ENDPOINTS.BECOME_A_CREATOR, label: 'Become a Creator' },
         ] as link}
             <a
                 href={link.href}
@@ -52,7 +54,7 @@
                 <BuildingIcon class="w-4 h-4 text-primary" />
             </div>
             <div>
-                <p class="text-[0.9rem] font-semibold text-white/90">I'm a brand</p>
+                <p class="text-[0.9rem] font-semibold text-white/90">Hire Creators</p>
                 <p class="text-[0.78rem] text-white/40">Connect with creators</p>
             </div>
             <ArrowRightIcon class="w-4 h-4 text-white/25 ml-auto group-hover:text-white/70 group-hover:translate-x-1 transition-all" />
@@ -66,7 +68,7 @@
                 <VideoIcon class="w-4 h-4 text-secondary" />
             </div>
             <div>
-                <p class="text-[0.9rem] font-semibold text-white/90">I'm a creator</p>
+                <p class="text-[0.9rem] font-semibold text-white/90">Become a Creator</p>
                 <p class="text-[0.78rem] text-white/40">Monetize your content</p>
             </div>
             <ArrowRightIcon class="w-4 h-4 text-white/25 ml-auto group-hover:text-white/70 group-hover:translate-x-1 transition-all" />
