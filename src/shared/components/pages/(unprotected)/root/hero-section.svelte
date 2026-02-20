@@ -80,7 +80,7 @@
 		</p>
 
 		<div
-			class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] delay-300 {visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}"
+			class="mb-10 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] delay-300 {visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}"
 		>
 			<a
 				href="#contact"
@@ -89,50 +89,48 @@
 				Start Your Campaign
 				<ArrowRightIcon class="w-5 h-5" />
 			</a>
-			<a
-				href="#results"
-				class="inline-flex items-center px-8 py-4 bg-white/4 border border-white/12 rounded-full text-light-muted font-semibold text-base hover:bg-white/8 hover:border-white/20 hover:text-light transition-all duration-200 backdrop-blur-sm"
-			>
-				See Our Results
-			</a>
 		</div>
 
 		<!-- Stats -->
 		<div
-			class="flex items-center justify-center gap-6 sm:gap-10 flex-wrap transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] delay-[400ms] {visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}"
+			class="flex items-center justify-center gap-2 sm:gap-8 flex-nowrap transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] delay-[400ms] {visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}"
 		>
-			<div class="flex flex-col items-center gap-0.5">
-				<span class="text-[1.5rem] sm:text-[1.9rem] font-extrabold gradient-text font-display leading-none">500+</span>
-				<span class="text-[0.78rem] text-light-dim mt-1">UGC Videos Delivered</span>
+			<div class="flex flex-col items-center gap-0.5 shrink-0">
+				<span class="text-[1.25rem] sm:text-[1.9rem] font-extrabold gradient-text font-display leading-none">500+</span>
+				<span class="text-[0.65rem] sm:text-[0.78rem] text-light-dim mt-1 whitespace-nowrap">UGC Videos Delivered</span>
 			</div>
-			<div class="hidden sm:block w-px h-9 bg-dark-border"></div>
-			<div class="flex flex-col items-center gap-0.5">
-				<span class="text-[1.5rem] sm:text-[1.9rem] font-extrabold gradient-text font-display leading-none">20+</span>
-				<span class="text-[0.78rem] text-light-dim mt-1">Brands Served</span>
+			<div class="w-px h-7 sm:h-9 bg-dark-border shrink-0"></div>
+			<div class="flex flex-col items-center gap-0.5 shrink-0">
+				<span class="text-[1.25rem] sm:text-[1.9rem] font-extrabold gradient-text font-display leading-none">20+</span>
+				<span class="text-[0.65rem] sm:text-[0.78rem] text-light-dim mt-1 whitespace-nowrap">Brands Served</span>
 			</div>
-			<div class="hidden sm:block w-px h-9 bg-dark-border"></div>
-			<div class="flex flex-col items-center gap-0.5">
-				<span class="text-[1.5rem] sm:text-[1.9rem] font-extrabold gradient-text font-display leading-none">8</span>
-				<span class="text-[0.78rem] text-light-dim mt-1">Countries Covered</span>
+			<div class="w-px h-7 sm:h-9 bg-dark-border shrink-0"></div>
+			<div class="flex flex-col items-center gap-0.5 shrink-0">
+				<span class="text-[1.25rem] sm:text-[1.9rem] font-extrabold gradient-text font-display leading-none">8</span>
+				<span class="text-[0.65rem] sm:text-[0.78rem] text-light-dim mt-1 whitespace-nowrap">Countries Covered</span>
 			</div>
 		</div>
 	</div>
 
 	<!-- Marquee — no label, no background -->
 	<div
-		class="relative w-full overflow-hidden mask-[linear-gradient(90deg,transparent_0%,black_8%,black_92%,transparent_100%)] [-webkit-mask-image:linear-gradient(90deg,transparent_0%,black_8%,black_92%,transparent_100%)] transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] delay-500 {visible ? 'opacity-100' : 'opacity-0'}"
+		class="w-full max-w-[1100px] mx-auto px-6 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] delay-500 {visible ? 'opacity-100' : 'opacity-0'}"
 	>
-		<div class="flex w-max animate-[marquee_35s_linear_infinite]">
-			{#each [0, 1] as _set}
-				<div class="flex items-center gap-12 pr-12" aria-hidden={_set > 0 ? 'true' : undefined}>
-					{#each brandsData as brand}
-						<div class="flex items-center gap-2.5 opacity-30 hover:opacity-55 transition-opacity duration-300 shrink-0">
-							<span class="w-1.5 h-1.5 rounded-full bg-gradient-brand shrink-0"></span>
-							<span class="text-lg font-bold text-light tracking-wide whitespace-nowrap font-display">{brand}</span>
-						</div>
-					{/each}
-				</div>
-			{/each}
+		<div
+			class="relative overflow-hidden mask-[linear-gradient(90deg,transparent_0%,black_8%,black_92%,transparent_100%)] [-webkit-mask-image:linear-gradient(90deg,transparent_0%,black_8%,black_92%,transparent_100%)]"
+		>
+			<div class="flex w-max animate-[marquee_35s_linear_infinite]">
+				{#each [0, 1] as _set}
+					<div class="flex items-center gap-12 pr-12" aria-hidden={_set > 0 ? 'true' : undefined}>
+						{#each brandsData as brand}
+							<div class="flex items-center gap-2.5 opacity-30 hover:opacity-55 transition-opacity duration-300 shrink-0">
+								<span class="w-1.5 h-1.5 rounded-full bg-gradient-brand shrink-0"></span>
+								<span class="text-lg font-bold text-light tracking-wide whitespace-nowrap font-display">{brand}</span>
+							</div>
+						{/each}
+					</div>
+				{/each}
+			</div>
 		</div>
 	</div>
 </section>

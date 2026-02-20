@@ -30,8 +30,6 @@
             { href: UNPROTECTED_PAGE_ENDPOINTS.WORK, label: 'Work' },
             { href: UNPROTECTED_PAGE_ENDPOINTS.RESULTS, label: 'Results' },
             { href: UNPROTECTED_PAGE_ENDPOINTS.FAQ, label: 'FAQ' },
-            { href: UNPROTECTED_PAGE_ENDPOINTS.HIRE_CREATORS, label: 'Hire Creators' },
-            { href: UNPROTECTED_PAGE_ENDPOINTS.BECOME_A_CREATOR, label: 'Become a Creator' },
         ] as link}
             <a
                 href={link.href}
