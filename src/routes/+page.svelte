@@ -7,7 +7,6 @@
 
 	// COMPONENTS
 	import HeroSection from '@/shared/components/pages/(unprotected)/root/hero-section.svelte';
-
 	import ServicesSection from '@/shared/components/pages/(unprotected)/root/services-section.svelte';
 	import VideoShowcaseSection from '@/shared/components/pages/(unprotected)/root/video-showcase-section/video-showcase-section.svelte';
 	import HowItWorksSection from '@/shared/components/pages/(unprotected)/root/how-it-works-section.svelte';

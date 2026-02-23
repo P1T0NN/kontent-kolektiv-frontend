@@ -20,7 +20,7 @@ export const UNPROTECTED_PAGE_ENDPOINTS = {
 	RESULTS: "#results",
 	FAQ: "#faq",
 	SERVICES: "#services",
-	HIRE_CREATORS: "#contact",
-	BECOME_A_CREATOR: "#contact",
+	HIRE_CREATORS: "https://calendly.com/kdobrev/sync",
+	BECOME_A_CREATOR: "https://bit.ly/new-ugc-applicaiton-form",
 	LOGIN: "/login"
 };

@@ -9,12 +9,12 @@
 export function getContentSecurityPolicy(): string {
 	return [
 		"default-src 'self'",
-		"script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:",
+		"script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://legal-tech.bg",
 		"worker-src 'self' blob:",
 		"style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
 		"img-src 'self' data: https:",
 		"font-src 'self' data: https://fonts.gstatic.com",
-		"connect-src 'self' https://accounts.google.com https://oauth2.googleapis.com https://www.googleapis.com https://*.convex.cloud wss://*.convex.cloud",
+		"connect-src 'self' https://accounts.google.com https://oauth2.googleapis.com https://www.googleapis.com https://*.convex.cloud wss://*.convex.cloud https://legal-tech.bg https://services.legal-tech.bg",
 		"frame-src 'self' https://accounts.google.com https://www.youtube.com https://www.youtube-nocookie.com https://m.youtube.com https://consent.youtube.com https://player.vimeo.com https://www.tiktok.com https://www.instagram.com",
 		"object-src 'none'",
 		"base-uri 'self'",

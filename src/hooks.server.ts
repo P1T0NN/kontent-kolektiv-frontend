@@ -16,7 +16,8 @@ import { getSecurityHeaders, getHstsHeader } from '@/shared/utils/securityHeader
 // TYPES
 import type { Handle } from '@sveltejs/kit';
 
-const isPublicRoute = createRouteMatcher(Object.values(UNPROTECTED_PAGE_ENDPOINTS));
+const publicPaths = Object.values(UNPROTECTED_PAGE_ENDPOINTS).filter((p) => typeof p === 'string' && p.startsWith('/'));
+const isPublicRoute = createRouteMatcher(publicPaths);
 
 const { handleAuth, isAuthenticated, createConvexHttpClient } = createConvexAuthHooks();
 
