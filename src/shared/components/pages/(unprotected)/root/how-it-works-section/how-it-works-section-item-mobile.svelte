@@ -25,14 +25,14 @@
             class="group mb-5 flex-1 cursor-default overflow-hidden rounded-2xl border border-[#2A2A4A] bg-[#0A0A1A] p-5"
             style="--step-accent: {step.accent};"
         >
-            <!-- Ghost number -->
-            <span
-                class="pointer-events-none absolute right-2 top-0 select-none font-black italic leading-none text-[4rem] opacity-[0.05]"
-                style="color: {step.accent};"
-            >{step.number}</span>
-
-            <div class="mb-3 flex size-9 items-center justify-center rounded-xl" style="background: {step.accent}18; border: 1px solid {step.accent}30; color: {step.accent};">
-                <svelte:component this={step.icon} class="size-4" />
+            <!-- Ghost number in icon position -->
+            <div class="mb-3 flex size-9 items-center justify-center overflow-visible rounded-xl" style="background: {step.accent}18; border: 1px solid {step.accent}30;">
+                <span
+                    class="pointer-events-none select-none font-black italic leading-none text-2xl opacity-[0.15]"
+                    style="color: {step.accent};"
+                >
+                    {step.number}
+                </span>
             </div>
             <h3 class="mb-1.5 text-[0.95rem] font-extrabold tracking-[-0.01em] text-white">{step.title()}</h3>
             <p class="text-[0.8rem] leading-relaxed text-[#B0B0CC]">{step.desc()}</p>

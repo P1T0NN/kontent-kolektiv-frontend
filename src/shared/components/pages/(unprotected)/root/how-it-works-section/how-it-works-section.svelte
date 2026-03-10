@@ -3,7 +3,6 @@
 	import { m } from '@/shared/lib/paraglide/messages';
 
 	// COMPONENTS
-	import AmbientCenterGlowBlob from '@/shared/components/ui/page-backgrounds/ambient-center-glow-blob.svelte';
 	import GridTextureBackground from '@/shared/components/ui/page-backgrounds/grid-texture-background.svelte';
 	import HowItWorksSectionItemMobile from './how-it-works-section-item-mobile.svelte';
 	import HowItWorksSectionItemDesktop from './how-it-works-section-item-desktop.svelte';
@@ -14,8 +13,6 @@
 
 <section class="relative overflow-hidden bg-[#12122A] py-28">
 	<GridTextureBackground />
-
-	<AmbientCenterGlowBlob />
 
 	<div class="relative z-10 mx-auto max-w-[1200px] px-6">
 		<div class="mb-20 text-center">

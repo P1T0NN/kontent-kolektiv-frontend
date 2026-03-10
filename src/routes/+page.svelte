@@ -23,7 +23,6 @@
 	import FaqSection from '@/shared/components/pages/(unprotected)/root/faq-section.svelte';
 	import CtaSection from '@/shared/components/pages/(unprotected)/root/cta-section.svelte';
 	import Reveal from '@/shared/components/ui/reveal/reveal.svelte';
-	import JaggedTearTransition from '@/shared/components/ui/page-transitions/jagged-tear-transition.svelte';
 	import InkDripTransition from '@/shared/components/ui/page-transitions/ink-drip-transition.svelte';
 	import GlitchSliceTransition from '@/shared/components/ui/page-transitions/glitch-slice-transition.svelte';
 
@@ -68,7 +67,6 @@
 <main>
 	<HeroSection />
 
-	<JaggedTearTransition />
 	<Reveal>
 		<VideoShowcaseSection />
 	</Reveal>

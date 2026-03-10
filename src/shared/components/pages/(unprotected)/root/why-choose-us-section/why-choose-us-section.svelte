@@ -4,18 +4,11 @@
 
 	// COMPONENTS
 	import NoiseOverlayBackground from '@/shared/components/ui/page-backgrounds/noise-overlay-background.svelte';
-	import BlobsBackground from '@/shared/components/ui/page-backgrounds/blobs-background.svelte';
-	import FloatingDecosBackground from '@/shared/components/ui/page-backgrounds/floating-decos-background.svelte';
-	import SketchyAnimatedLine from '@/shared/components/ui/designs/sketchy-animated-line.svelte';
 	import WhyChooseUsSectionItem from './why-choose-us-section-item.svelte';
 </script>
 
 <section class="relative overflow-hidden bg-[#0A0A1A] py-28">
 	<NoiseOverlayBackground />
-
-	<BlobsBackground />
-
-	<FloatingDecosBackground />
 
 	<div class="relative z-10 mx-auto max-w-[1200px] px-6">
 		<div class="mb-20 text-center">
@@ -27,8 +20,6 @@
 			<p class="mx-auto max-w-[520px] font-mono text-sm leading-relaxed text-[#B0B0CC]">
 				{m['HomePage.WhyChooseUsSection.subtitle']()}
 			</p>
-
-			<SketchyAnimatedLine />
 		</div>
 
 		<div class="grid grid-cols-1 gap-5 md:grid-cols-2">

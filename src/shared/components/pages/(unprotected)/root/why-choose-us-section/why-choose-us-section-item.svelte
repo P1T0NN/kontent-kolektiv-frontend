@@ -1,7 +1,6 @@
 <script lang="ts">
     // COMPONENTS
     import AnimatedDashedBorderOnHover from '@/shared/components/ui/designs/animated-dashed-border-on-hover.svelte';
-    import CornerScribbleLine from '@/shared/components/ui/designs/corner-scribble-line.svelte';
 
     // DATA
     import { whyChooseUsData } from '@/shared/data/whyChooseUsData';
@@ -57,8 +56,6 @@
         <p class="relative z-1 text-sm leading-[1.65] text-[#B0B0CC]">
             {reason.desc()}
         </p>
-
-        <CornerScribbleLine accent={reason.accent} />
     </div>
 {/each}
 
