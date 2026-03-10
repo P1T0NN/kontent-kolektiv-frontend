@@ -24,10 +24,10 @@
 
         <!-- Icon -->
         <div
-            class="mb-4 flex size-10 items-center justify-center rounded-xl text-lg transition-transform duration-200 group-hover:-rotate-6 group-hover:scale-110"
-            style="background: {step.accent}18; border: 1px solid {step.accent}30;"
+            class="mb-4 flex size-10 items-center justify-center rounded-xl transition-transform duration-200 group-hover:-rotate-6 group-hover:scale-110"
+            style="background: {step.accent}18; border: 1px solid {step.accent}30; color: {step.accent};"
         >
-            {step.icon}
+            <svelte:component this={step.icon} class="size-5" />
         </div>
 
         <h3 class="relative z-10 mb-2 text-[1rem] font-extrabold leading-snug tracking-[-0.01em] text-white">

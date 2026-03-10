@@ -31,8 +31,8 @@
                 style="color: {step.accent};"
             >{step.number}</span>
 
-            <div class="mb-3 flex size-9 items-center justify-center rounded-xl text-base" style="background: {step.accent}18; border: 1px solid {step.accent}30;">
-                {step.icon}
+            <div class="mb-3 flex size-9 items-center justify-center rounded-xl" style="background: {step.accent}18; border: 1px solid {step.accent}30; color: {step.accent};">
+                <svelte:component this={step.icon} class="size-4" />
             </div>
             <h3 class="mb-1.5 text-[0.95rem] font-extrabold tracking-[-0.01em] text-white">{step.title()}</h3>
             <p class="text-[0.8rem] leading-relaxed text-[#B0B0CC]">{step.desc()}</p>
