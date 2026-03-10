@@ -1,6 +1,7 @@
 <script lang="ts">
 	// CONFIG
 	import { COMPANY_DATA } from '@/shared/constants';
+	import { m } from '@/shared/lib/paraglide/messages';
 
 	// LUCIDE ICONS
 	import MailIcon from '@lucide/svelte/icons/mail';
@@ -9,11 +10,11 @@
 
 <div class="flex flex-col pt-4">
     <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-extrabold text-light mb-6 leading-tight font-display">
-        Let's build your next <span class="text-transparent bg-clip-text bg-gradient-brand">winning campaign.</span>
+        {m['ContactPage.LeftContent.subtitle']()}<span class="text-transparent bg-clip-text bg-gradient-brand">{m['ContactPage.LeftContent.subtitleHighlight']()}</span>
     </h2>
     
     <p class="text-lg text-light-muted leading-relaxed mb-10 max-w-md">
-        Tell us about your brand and goals. We'll put together a custom content plan with creator recommendations within 24 hours.
+        {m['ContactPage.LeftContent.description']()}
     </p>
 
     <div class="flex flex-col gap-6 mb-12">
@@ -22,7 +23,7 @@
                 <MailIcon class="w-5 h-5" />
             </div>
             <div>
-                <h3 class="text-base font-semibold text-light mb-1">Email Us</h3>
+                <h3 class="text-base font-semibold text-light mb-1">{m['ContactPage.LeftContent.emailUs']()}</h3>
                 <a href={"mailto:" + COMPANY_DATA.EMAIL} class="text-light-dim hover:text-white transition-colors">{COMPANY_DATA.EMAIL}</a>
             </div>
         </div>
@@ -32,9 +33,9 @@
                 <MapPinIcon class="w-5 h-5" />
             </div>
             <div>
-                <h3 class="text-base font-semibold text-light mb-1">HQ</h3>
-                <p class="text-light-dim">Sofia, Bulgaria</p>
-                <p class="text-sm text-light-muted mt-1">Serving clients globally</p>
+                <h3 class="text-base font-semibold text-light mb-1">{m['ContactPage.LeftContent.hq']()}</h3>
+                <p class="text-light-dim">{m['ContactPage.LeftContent.location']()}</p>
+                <p class="text-sm text-light-muted mt-1">{m['ContactPage.LeftContent.servingGlobally']()}</p>
             </div>
         </div>
     </div>

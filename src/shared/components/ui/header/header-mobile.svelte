@@ -1,10 +1,23 @@
 <script lang="ts">
-    // CONFIG
-    import { UNPROTECTED_PAGE_ENDPOINTS, ADMIN_PAGE_ENDPOINTS } from '@/shared/constants';
+	// CONFIG
+	import { UNPROTECTED_PAGE_ENDPOINTS, ADMIN_PAGE_ENDPOINTS } from '@/shared/constants';
+	import { headerNavLinks } from '@/shared/data/headerNavData';
+	import { m } from '@/shared/lib/paraglide/messages';
 
-    // CLASSES
-    import { headerClass } from './header.svelte.ts';
+	// CLASSES
+	import { headerClass } from './header.svelte.ts';
+
+	$effect(() => {
+		if (headerClass.mobileOpen) {
+			const prev = document.body.style.overflow;
+			document.body.style.overflow = 'hidden';
+			return () => { document.body.style.overflow = prev; };
+		}
+	});
     import { usersClass } from '@/features/users/classes/users-class.svelte';
+
+    // COMPONENTS
+    import LanguageSelector from '@/shared/components/ui/language-selector/language-selector.svelte';
 
     // LUCIDE ICONS
     import BuildingIcon from '@lucide/svelte/icons/building-2';
@@ -13,6 +26,10 @@
 </script>
 
 <div class="fixed inset-0 z-999 flex flex-col bg-[#0a0810]/95 backdrop-blur-xl pt-24 px-6 pb-10">
+    <!-- Locale switcher -->
+    <div class="flex justify-end mb-6">
+        <LanguageSelector variant="header" inOverlay />
+    </div>
     <!-- Nav links -->
     <div class="flex flex-col gap-1 mb-8">
         {#if usersClass.currentUser?.role === 'admin'}
@@ -21,22 +38,17 @@
                 onclick={() => headerClass.mobileOpen = false}
                 class="px-4 py-4 text-lg font-semibold text-white/90 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-150 border border-white/15"
             >
-                Dashboard
+                {m['Header.dashboard']()}
             </a>
         {/if}
         
-        {#each [
-            { href: UNPROTECTED_PAGE_ENDPOINTS.SERVICES, label: 'Services' },
-            { href: UNPROTECTED_PAGE_ENDPOINTS.WORK, label: 'Work' },
-            { href: UNPROTECTED_PAGE_ENDPOINTS.RESULTS, label: 'Results' },
-            { href: UNPROTECTED_PAGE_ENDPOINTS.FAQ, label: 'FAQ' },
-        ] as link}
+        {#each headerNavLinks as link}
             <a
                 href={link.href}
                 onclick={() => headerClass.mobileOpen = false}
                 class="px-4 py-4 text-lg font-medium text-white/60 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-150 border-b border-white/4 last:border-none"
             >
-                {link.label}
+                {link.label()}
             </a>
         {/each}
     </div>
@@ -52,8 +64,8 @@
                 <BuildingIcon class="w-4 h-4 text-primary" />
             </div>
             <div>
-                <p class="text-[0.9rem] font-semibold text-white/90">Hire Creators</p>
-                <p class="text-[0.78rem] text-white/40">Connect with creators</p>
+                <p class="text-[0.9rem] font-semibold text-white/90">{m['Header.hireCreators']()}</p>
+                <p class="text-[0.78rem] text-white/40">{m['Header.Mobile.hireCreatorsDesc']()}</p>
             </div>
             <ArrowRightIcon class="w-4 h-4 text-white/25 ml-auto group-hover:text-white/70 group-hover:translate-x-1 transition-all" />
         </a>
@@ -66,8 +78,8 @@
                 <VideoIcon class="w-4 h-4 text-secondary" />
             </div>
             <div>
-                <p class="text-[0.9rem] font-semibold text-white/90">Become a Creator</p>
-                <p class="text-[0.78rem] text-white/40">Monetize your content</p>
+                <p class="text-[0.9rem] font-semibold text-white/90">{m['Header.becomeACreator']()}</p>
+                <p class="text-[0.78rem] text-white/40">{m['Header.Mobile.becomeACreatorDesc']()}</p>
             </div>
             <ArrowRightIcon class="w-4 h-4 text-white/25 ml-auto group-hover:text-white/70 group-hover:translate-x-1 transition-all" />
         </a>

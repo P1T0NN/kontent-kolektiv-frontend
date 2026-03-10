@@ -1,8 +1,9 @@
 <script lang="ts">
-    // CLASS
-    import { contactPageClass } from '@/routes/(unprotected)/contact/index.svelte';
+	// CLASS
+	import { contactPageClass } from '@/routes/(unprotected)/contact/index.svelte';
+	import { m } from '@/shared/lib/paraglide/messages';
 
-    // LUCIDE ICONS
+	// LUCIDE ICONS
     import CheckCircleIcon from '@lucide/svelte/icons/check-circle';
 </script>
 
@@ -11,16 +12,16 @@
         <CheckCircleIcon class="w-8 h-8" />
     </div>
 
-    <h3 class="text-2xl font-bold text-light mb-3">Message Received!</h3>
+    <h3 class="text-2xl font-bold text-light mb-3">{m['ContactPage.Successful.title']()}</h3>
 
     <p class="text-light-muted max-w-xs mx-auto mb-8">
-        Thanks for reaching out. Our team will review your inquiry and get back to you within 24 hours.
+        {m['ContactPage.Successful.description']()}
     </p>
 
     <button 
         onclick={() => contactPageClass.isSuccess = false}
         class="px-6 py-2.5 rounded-full bg-dark-card border border-dark-border text-light font-medium hover:bg-dark-border transition-colors"
     >
-        Send another message
+        {m['ContactPage.Successful.sendAnother']()}
     </button>
 </div>

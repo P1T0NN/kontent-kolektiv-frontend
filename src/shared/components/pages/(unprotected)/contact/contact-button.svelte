@@ -1,8 +1,9 @@
 <script lang="ts">
-    // LIBRARIES
-    import * as v from 'valibot';
+	// LIBRARIES
+	import * as v from 'valibot';
+	import { m } from '@/shared/lib/paraglide/messages';
 
-    // CLASS
+	// CLASS
     import { contactPageClass } from '@/routes/(unprotected)/contact/index.svelte';
 
     // COMPONENTS
@@ -52,8 +53,8 @@
 >
     {#if contactPageClass.pendingStates.contactIsPending}
         <Spinner />
-        Sending...
+        {m['ContactPage.Form.sending']()}
     {:else}
-        Send Message
+        {m['ContactPage.Form.sendMessage']()}
     {/if}
 </Button>

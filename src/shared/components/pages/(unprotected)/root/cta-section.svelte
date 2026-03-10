@@ -1,6 +1,9 @@
 <script lang="ts">
+	// LIBRARIES
+	import { m } from '@/shared/lib/paraglide/messages';
+
 	// CONFIG
-	import { COMPANY_DATA } from '@/shared/constants';
+	import { COMPANY_DATA, UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/constants';
 
 	// LUCIDE ICONS
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
@@ -15,19 +18,22 @@
 
 			<div class="relative max-w-[640px] mx-auto">
 				<h2 class="text-[clamp(1.8rem,3.5vw,2.8rem)] font-extrabold text-light mb-4 leading-tight">
-					Let's build your next winning campaign
+					{m['HomePage.CtaSection.title']()}
 				</h2>
+
 				<p class="text-[1.05rem] text-light-muted leading-relaxed mb-9">
-					Tell us about your brand and markets. We'll create a custom content plan with recommended creators, pricing, and timeline — no strings attached.
+					{m['HomePage.CtaSection.subtitle']()}
 				</p>
+
 				<div class="flex items-center justify-center gap-4 flex-wrap mb-6">
 					<a
-						href={"mailto:" + COMPANY_DATA.EMAIL}
+						href={UNPROTECTED_PAGE_ENDPOINTS.HIRE_CREATORS}
 						class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-brand rounded-full text-light font-semibold text-base hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(233,69,144,0.4)] transition-all duration-200 shadow-[0_4px_20px_rgba(233,69,144,0.25)]"
 					>
-						Book a Free Strategy Call
+						{m['HomePage.CtaSection.cta']()}
 						<ArrowRightIcon class="w-5 h-5" />
 					</a>
+					
 					<a
 						href={"mailto:" + COMPANY_DATA.EMAIL}
 						class="inline-flex items-center px-8 py-4 bg-white/4 border border-white/12 rounded-full text-light-muted font-medium text-[0.95rem] hover:bg-white/8 hover:border-white/20 hover:text-light transition-all duration-200 backdrop-blur-sm"
@@ -36,11 +42,10 @@
 					</a>
 				</div>
 
-				<!-- Trust signals -->
 				<div class="flex items-center justify-center gap-5 flex-wrap text-[0.72rem] text-light-dim">
-					<span>✓ Free strategy call</span>
-					<span>✓ No commitment</span>
-					<span>✓ Response within 24h</span>
+					<span>{m['HomePage.CtaSection.trust1']()}</span>
+					<span>{m['HomePage.CtaSection.trust2']()}</span>
+					<span>{m['HomePage.CtaSection.trust3']()}</span>
 				</div>
 			</div>
 		</div>

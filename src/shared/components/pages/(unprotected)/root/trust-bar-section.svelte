@@ -1,12 +1,15 @@
 <script lang="ts">
+	// LIBRARIES
+	import { m } from '@/shared/lib/paraglide/messages';
+
 	// DATA
 	import { brandsData } from '@/shared/data/brandsData';
 </script>
 
-<section class="py-12 border-t border-b border-dark-border bg-dark-surface overflow-hidden">
+<section id="work" class="py-12 border-t border-b border-dark-border bg-dark-surface overflow-hidden">
 	<div class="max-w-[1100px] mx-auto px-6">
 		<p class="text-center text-xs font-medium text-light-dim uppercase tracking-[0.12em] mb-7">
-			Trusted by leading brands across Southeast Europe
+			{m['HomePage.TrustBarSection.label']()}
 		</p>
 	</div>
 	<div class="relative w-full overflow-hidden mask-[linear-gradient(90deg,transparent_0%,black_10%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(90deg,transparent_0%,black_10%,black_90%,transparent_100%)]">

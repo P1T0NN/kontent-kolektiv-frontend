@@ -7,9 +7,7 @@ export const brandsData = [
 	'Beefeater',
 	'Videnov',
 	'Orange Center',
-	'Vellea home',
-	'Semana & Savex',
 	'Chipolino',
-	'TEO',
-	'Pufies'
+	'Pufies',
+	'NAOS'
 ];

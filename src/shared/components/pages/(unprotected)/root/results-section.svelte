@@ -1,4 +1,7 @@
 <script lang="ts">
+	// LIBRARIES
+	import { m } from '@/shared/lib/paraglide/messages';
+
 	// CLASS
 	import { rootPageClass } from '@/routes/index.svelte';
 
@@ -16,9 +19,9 @@
 <section id="results" class="relative pt-28 pb-44 bg-dark-surface overflow-hidden">
 	<div class="max-w-[1100px] mx-auto px-6">
 		<div class="text-center mb-16">
-			<p class="text-sm text-light-dim mb-3">Success Stories</p>
+			<p class="text-sm text-light-dim mb-3">{m['HomePage.ResultsSection.label']()}</p>
 			<h2 class="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-light">
-				Brand success,<br /><span class="gradient-text">powered by KontentKolektiv</span>
+				{m['HomePage.ResultsSection.titleBefore']()}<br /><span class="gradient-text">{m['HomePage.ResultsSection.titleHighlight']()}</span>
 			</h2>
 		</div>
 
@@ -36,7 +39,7 @@
 							<div class="text-[5rem] leading-none text-primary/20 font-serif absolute top-6 left-8 select-none">"</div>
 
 							<blockquote class="text-lg md:text-xl text-light-muted leading-[1.8] mb-8 pt-6 relative z-10">
-								{testimonial.quote}
+								{testimonial.quote()}
 							</blockquote>
 							<div class="flex items-center gap-4">
 								<div class="w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center font-bold text-lg text-light font-display shrink-0 shadow-[0_0_20px_rgba(233,69,144,0.3)]">
@@ -53,7 +56,7 @@
 							{#each testimonial.stats as stat, j}
 								<div class="flex-1 py-7 flex flex-col items-center gap-1 text-center {j > 0 ? 'border-l border-white/6' : ''}">
 									<span class="text-[1.5rem] md:text-[2rem] font-extrabold gradient-text font-display">{stat.value}</span>
-									<span class="text-[0.72rem] text-light-dim px-2">{stat.label}</span>
+									<span class="text-[0.72rem] text-light-dim px-2">{stat.label()}</span>
 								</div>
 							{/each}
 						</div>
@@ -67,7 +70,7 @@
 					<button
 						class="w-11 h-11 rounded-full bg-dark border border-dark-border text-light-muted flex items-center justify-center hover:border-light-dim hover:text-light transition-all duration-200"
 						onclick={() => rootPageClass.prevResultsIndex()}
-						aria-label="Previous testimonial"
+						aria-label={m['HomePage.ResultsSection.prevAria']()}
 					>
 						<ChevronLeftIcon class="w-5 h-5" />
 					</button>
@@ -76,14 +79,14 @@
 							<button
 								class="h-2.5 rounded-full transition-all duration-200 {i === rootPageClass.pageStates.resultsActiveIndex ? 'w-7 bg-gradient-brand' : 'w-2.5 bg-dark-border'}"
 								onclick={() => rootPageClass.pageStates.resultsActiveIndex = i}
-								aria-label="Go to testimonial {i + 1}"
+								aria-label={`${m['HomePage.ResultsSection.gotoAria']()} ${i + 1}`}
 							></button>
 						{/each}
 					</div>
 					<button
 						class="w-11 h-11 rounded-full bg-dark border border-dark-border text-light-muted flex items-center justify-center hover:border-light-dim hover:text-light transition-all duration-200"
 						onclick={() => rootPageClass.nextResultsIndex()}
-						aria-label="Next testimonial"
+						aria-label={m['HomePage.ResultsSection.nextAria']()}
 					>
 						<ChevronRightIcon class="w-5 h-5" />
 					</button>

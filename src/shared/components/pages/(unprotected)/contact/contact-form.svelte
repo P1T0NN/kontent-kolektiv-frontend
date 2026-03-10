@@ -1,6 +1,8 @@
 <script lang="ts">
 	// CLASS
 	import { contactPageClass } from '@/routes/(unprotected)/contact/index.svelte';
+	import { contactServices, contactBudgets } from '@/shared/data/contactFormData';
+	import { m } from '@/shared/lib/paraglide/messages';
 
 	// COMPONENTS
 	import { Field, FieldLabel, FieldError } from '@/shared/components/ui/field/index.js';
@@ -16,37 +18,25 @@
 	const inputs = contactPageClass.contactFormInputs;
 	const fieldErrors = $derived(contactPageClass.fieldErrors);
 
-	const services = [
-		'UGC Production',
-		'Performance Creative',
-		'Creator Partnership',
-		'Full Campaign Management',
-		'Other'
-	];
-
-	const budgets = [
-		'Under €1k',
-		'€1k - €5k',
-		'€5k - €10k',
-		'€10k+',
-		'Not sure yet'
-	];
-
-	const serviceLabel = $derived(inputs.service ? inputs.service : 'Select a service...');
-	const budgetLabel = $derived(inputs.budget ? inputs.budget : 'Select a range...');
+	const serviceLabel = $derived(
+		inputs.service ? (contactServices.find((s) => s.value === inputs.service)?.label() ?? inputs.service) : m['ContactPage.Form.selectService']()
+	);
+	const budgetLabel = $derived(
+		inputs.budget ? (contactBudgets.find((b) => b.value === inputs.budget)?.label() ?? inputs.budget) : m['ContactPage.Form.selectBudget']()
+	);
 </script>
 
 <div class="flex flex-col gap-6">
 	<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 		<Field>
 			<FieldLabel>
-				<Label for="name" class="text-light">Name</Label>
+				<Label for="name" class="text-light">{m['ContactPage.Form.name']()}</Label>
 			</FieldLabel>
 			<Input
 				id="name"
 				type="text"
 				bind:value={inputs.name}
-				placeholder="Jane Doe"
+				placeholder={m['ContactPage.Form.namePlaceholder']()}
 				class="w-full h-11 rounded-xl bg-dark border-dark-border"
 				aria-invalid={!!fieldErrors.name?.length}
 				oninput={() => contactPageClass.clearFieldError('name')}
@@ -55,13 +45,13 @@
 		</Field>
 		<Field>
 			<FieldLabel>
-				<Label for="email" class="text-light">Work Email</Label>
+				<Label for="email" class="text-light">{m['ContactPage.Form.workEmail']()}</Label>
 			</FieldLabel>
 			<Input
 				id="email"
 				type="email"
 				bind:value={inputs.email}
-				placeholder="jane@company.com"
+				placeholder={m['ContactPage.Form.emailPlaceholder']()}
 				class="w-full h-11 rounded-xl bg-dark border-dark-border"
 				aria-invalid={!!fieldErrors.email?.length}
 				oninput={() => contactPageClass.clearFieldError('email')}
@@ -73,15 +63,15 @@
 	<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 		<Field>
 			<FieldLabel>
-				<Label for="service" class="text-light">Service Needed</Label>
+				<Label for="service" class="text-light">{m['ContactPage.Form.serviceNeeded']()}</Label>
 			</FieldLabel>
 			<Select.Root type="single" bind:value={inputs.service} onValueChange={() => contactPageClass.clearFieldError('service')}>
 				<Select.Trigger class="w-full h-11 rounded-xl bg-dark border-dark-border justify-between" id="service" aria-invalid={!!fieldErrors.service?.length}>
 					<span class="truncate" data-slot="select-value">{serviceLabel}</span>
 				</Select.Trigger>
 				<Select.Content>
-					{#each services as s}
-						<Select.Item value={s} label={s} />
+					{#each contactServices as item}
+						<Select.Item value={item.value} label={item.label()} />
 					{/each}
 				</Select.Content>
 			</Select.Root>
@@ -89,15 +79,15 @@
 		</Field>
 		<Field>
 			<FieldLabel>
-				<Label for="budget" class="text-light">Monthly Budget</Label>
+				<Label for="budget" class="text-light">{m['ContactPage.Form.monthlyBudget']()}</Label>
 			</FieldLabel>
 			<Select.Root type="single" bind:value={inputs.budget} onValueChange={() => contactPageClass.clearFieldError('budget')}>
 				<Select.Trigger class="w-full h-11 rounded-xl bg-dark border-dark-border justify-between" id="budget" aria-invalid={!!fieldErrors.budget?.length}>
 					<span class="truncate" data-slot="select-value">{budgetLabel}</span>
 				</Select.Trigger>
 				<Select.Content>
-					{#each budgets as b}
-						<Select.Item value={b} label={b} />
+					{#each contactBudgets as item}
+						<Select.Item value={item.value} label={item.label()} />
 					{/each}
 				</Select.Content>
 			</Select.Root>
@@ -107,13 +97,13 @@
 
 	<Field>
 		<FieldLabel>
-			<Label for="message" class="text-light">Project Details</Label>
+			<Label for="message" class="text-light">{m['ContactPage.Form.projectDetails']()}</Label>
 		</FieldLabel>
 		<Textarea
 			id="message"
 			bind:value={inputs.message}
 			rows={4}
-			placeholder="Tell us a bit about your campaign goals..."
+			placeholder={m['ContactPage.Form.messagePlaceholder']()}
 			class="w-full rounded-xl bg-dark border-dark-border resize-none min-h-24"
 			aria-invalid={!!fieldErrors.message?.length}
 			oninput={() => contactPageClass.clearFieldError('message')}
@@ -124,6 +114,6 @@
 	<ContactButton />
 
 	<p class="text-xs text-center text-light-dim/60 mt-2">
-		By submitting this form, you agree to our privacy policy. We respect your data.
+		{m['ContactPage.Form.privacyNote']()}
 	</p>
 </div>

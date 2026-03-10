@@ -1,8 +1,10 @@
+import { m } from '@/shared/lib/paraglide/messages';
+
 export const comparisonData = [
-	{ label: 'Real local creators people trust', us: true, them: 'partial' },
-	{ label: 'Native-language content per market', us: true, them: 'partial' },
-	{ label: 'Authentic storytelling-first content', us: true, them: false },
-	{ label: 'Ad-ready delivery for all platforms', us: true, them: 'partial' },
-	{ label: '8 Southeast European markets', us: true, them: 'partial' },
-	{ label: 'Fast turnaround (days, not weeks)', us: true, them: 'partial' }
+	{ label: m['HomePage.ComparisonSection.feature1'], us: true, them: 'partial' },
+	{ label: m['HomePage.ComparisonSection.feature2'], us: true, them: 'partial' },
+	{ label: m['HomePage.ComparisonSection.feature3'], us: true, them: false },
+	{ label: m['HomePage.ComparisonSection.feature4'], us: true, them: 'partial' },
+	{ label: m['HomePage.ComparisonSection.feature5'], us: true, them: 'partial' },
+	{ label: m['HomePage.ComparisonSection.feature6'], us: true, them: 'partial' }
 ];

@@ -1,3 +1,5 @@
+export const SITE_URL = "https://kontentkolektiv.com";
+
 export const COMPANY_DATA = {
 	COMPANY_NAME: "KontentKolektiv",
 	INSTAGRAM_URL: "https://www.instagram.com/kontentkolektiv",

@@ -1,5 +1,6 @@
 <script lang="ts">
 	// LIBRARIES
+	import { m } from '@/shared/lib/paraglide/messages';
 	import { useQuery } from 'convex-svelte';
 	import { api } from '@/convex/_generated/api';
 
@@ -16,12 +17,12 @@
 <section id="work" class="py-28 bg-dark-surface">
 	<div class="max-w-[1100px] mx-auto px-6">
 		<div class="text-center mb-14">
-			<p class="text-sm text-light-dim mb-3">Our Work</p>
+			<p class="text-sm text-light-dim mb-3">{m['HomePage.VideoShowcaseSection.label']()}</p>
 			<h2 class="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-light mb-4">
-				Content that <span class="gradient-text">resonates</span>
+				{m['HomePage.VideoShowcaseSection.titleBefore']()}<span class="gradient-text">{m['HomePage.VideoShowcaseSection.titleHighlight']()}</span>
 			</h2>
 			<p class="text-lg text-light-muted max-w-[560px] mx-auto leading-relaxed">
-				Real UGC campaigns we've produced for brands in Bulgaria and the Balkans. Local creators, authentic stories, measurable results.
+				{m['HomePage.VideoShowcaseSection.subtitle']()}
 			</p>
 		</div>
 
@@ -46,19 +47,18 @@
 			<VideoShowcaseSectionEmpty />
 		{/if}
 
-		<!-- Stat pills -->
 		<div class="flex flex-col sm:flex-row items-center justify-center gap-3 flex-wrap mt-12">
 			<div class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/4 border border-white/8 backdrop-blur-sm">
 				<span class="text-2xl font-extrabold gradient-text font-display leading-none">5x</span>
-				<span class="text-[0.8rem] text-light-muted text-left leading-snug max-w-[140px]">Higher engagement vs branded videos</span>
+				<span class="text-[0.8rem] text-light-muted text-left leading-snug max-w-[140px]">{m['HomePage.VideoShowcaseSection.stat1']()}</span>
 			</div>
 			<div class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/4 border border-white/8 backdrop-blur-sm">
 				<span class="text-2xl font-extrabold gradient-text font-display leading-none">70%</span>
-				<span class="text-[0.8rem] text-light-muted text-left leading-snug max-w-[140px]">of Gen Z trust peer-created content over ads</span>
+				<span class="text-[0.8rem] text-light-muted text-left leading-snug max-w-[140px]">{m['HomePage.VideoShowcaseSection.stat2']()}</span>
 			</div>
 			<div class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/4 border border-white/8 backdrop-blur-sm">
 				<span class="text-2xl font-extrabold gradient-text font-display leading-none">3x</span>
-				<span class="text-[0.8rem] text-light-muted text-left leading-snug max-w-[140px]">Increase in social reach within first month</span>
+				<span class="text-[0.8rem] text-light-muted text-left leading-snug max-w-[140px]">{m['HomePage.VideoShowcaseSection.stat3']()}</span>
 			</div>
 		</div>
 	</div>

@@ -5,11 +5,15 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({ 
     plugins: [
-        paraglideVitePlugin({ 
-			project: './project.inlang', 
+        paraglideVitePlugin({
+			project: './project.inlang',
 			outdir: './src/shared/lib/paraglide',
-			strategy: ['cookie', 'baseLocale'],
-            disableAsyncLocalStorage: true
+			strategy: ['url', 'baseLocale'],
+			disableAsyncLocalStorage: true,
+			urlPatterns: [
+				{ pattern: '/', localized: [['en', '/en'], ['bg', '/bg']] },
+				{ pattern: '/:path(.*)?', localized: [['en', '/en/:path(.*)?'], ['bg', '/bg/:path(.*)?']] }
+			]
 		}),
         tailwindcss(), 
         sveltekit()

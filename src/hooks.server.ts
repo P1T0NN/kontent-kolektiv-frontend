@@ -22,15 +22,18 @@ const isPublicRoute = createRouteMatcher(publicPaths);
 const { handleAuth, isAuthenticated, createConvexHttpClient } = createConvexAuthHooks();
 
 const requireAuth: Handle = async ({ event, resolve }) => {
-	// Allow public routes
-	if (isPublicRoute(event.url.pathname)) {
+	// Use event.request.url (delocalized by paraglide) - event.url may be cached and still have /en
+	const pathname = new URL(event.request.url).pathname;
+	if (isPublicRoute(pathname)) {
 		return resolve(event);
 	}
 
 	// Check if user is authenticated
 	if (!(await isAuthenticated(event))) {
-		// Redirect to signin if not authenticated
-		throw redirect(302, `${UNPROTECTED_PAGE_ENDPOINTS.ROOT}`);
+		// Redirect to localized path - avoid paraglide redirecting / → /en again
+		const { localizeHref } = await import('@/shared/lib/paraglide/runtime.js');
+		const target = localizeHref(UNPROTECTED_PAGE_ENDPOINTS.ROOT);
+		throw redirect(302, target);
 	}
 
 	// Fetch user data for protected routes (needed for role-based access control)
@@ -66,10 +69,11 @@ const paraglideHandle: Handle = ({ event, resolve }) =>
 		event.request = localizedRequest;
 		return resolve(event, {
 			transformPageChunk: ({ html }) => {
-				return html.replace('%lang%', locale);
+				return html
+					.replace('%lang%', locale)
 			}
 		});
 	});
 
-// Chain handles: rate limit first, then session validation, then security headers, then paraglide
-export const handle: Handle = sequence(handleAuth, requireAuth, securityHeadersHandle, paraglideHandle);
+// Paraglide must run before requireAuth so event.url is delocalized (e.g. /en → /) for public path matching
+export const handle: Handle = sequence(handleAuth, paraglideHandle, requireAuth, securityHeadersHandle);
