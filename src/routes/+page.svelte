@@ -46,7 +46,25 @@
 		email: COMPANY_DATA.EMAIL,
 		sameAs: [COMPANY_DATA.INSTAGRAM_URL]
 	};
-	
+
+	$effect(() => {
+		if (typeof document === 'undefined') return;
+		const faq = faqSchema;
+		const org = orgSchema;
+		const s1 = document.createElement('script');
+		s1.type = 'application/ld+json';
+		s1.textContent = JSON.stringify(faq);
+		document.head.appendChild(s1);
+		const s2 = document.createElement('script');
+		s2.type = 'application/ld+json';
+		s2.textContent = JSON.stringify(org);
+		document.head.appendChild(s2);
+		return () => {
+			s1.remove();
+			s2.remove();
+		};
+	});
+
 	onDestroy(() => {
 		rootPageClass.cleanup();
 	});
@@ -60,8 +78,6 @@
 	<meta property="og:image" content={ogImage} />
 	<meta property="og:url" content={canonicalUrl} />
 	<meta property="og:type" content="website" />
-	{@html `<script type="application/ld+json">${JSON.stringify(faqSchema)}<\/script>`}
-	{@html `<script type="application/ld+json">${JSON.stringify(orgSchema)}<\/script>`}
 </svelte:head>
 
 <main>

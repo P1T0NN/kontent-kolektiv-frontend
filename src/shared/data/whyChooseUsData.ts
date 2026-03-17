@@ -14,7 +14,7 @@ export const whyChooseUsData = [
         desc: () => m['HomePage.WhyChooseUsSection.reason1Desc'](),
         accent: '#E94590',
         tag: () => m['HomePage.WhyChooseUsSection.reason1Tag'](),
-        stat: '500+',
+        stat: '200',
         statLabel: () => m['HomePage.WhyChooseUsSection.reason1StatLabel']()
     },
     {
@@ -23,7 +23,7 @@ export const whyChooseUsData = [
         desc: () => m['HomePage.WhyChooseUsSection.reason2Desc'](),
         accent: '#6C63FF',
         tag: () => m['HomePage.WhyChooseUsSection.reason2Tag'](),
-        stat: '3.2x',
+        stat: '500',
         statLabel: () => m['HomePage.WhyChooseUsSection.reason2StatLabel']()
     },
     {
@@ -32,7 +32,7 @@ export const whyChooseUsData = [
         desc: () => m['HomePage.WhyChooseUsSection.reason3Desc'](),
         accent: '#00D4FF',
         tag: () => m['HomePage.WhyChooseUsSection.reason3Tag'](),
-        stat: '48h',
+        stat: '7 days',
         statLabel: () => m['HomePage.WhyChooseUsSection.reason3StatLabel']()
     },
     {

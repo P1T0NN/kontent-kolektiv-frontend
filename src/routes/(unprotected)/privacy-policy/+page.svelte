@@ -9,6 +9,7 @@
 <svelte:head>
 	<title>Privacy Policy – KontentKolektiv</title>
 	<meta name="description" content="Privacy Policy for KontentKolektiv. How we process your personal data." />
+	<script id="CookieDeclaration" src="https://consent.cookiebot.com/c15d78a1-ac3a-491d-94bd-68cc1567a13e/cd.js" type="text/javascript" async></script>
 </svelte:head>
 
 <main class="min-h-screen pt-32 pb-24 bg-white">
@@ -18,6 +19,9 @@
 			<p class="text-gray-500 mb-10">Effective Date: March 13th, 2025</p>
 
 			<LegalTechEmbed embedId="5CZ0G658G9" />
+
+			<h2 class="text-2xl font-semibold text-gray-900 mt-12 mb-4">Cookie Declaration</h2>
+			<div id="CookieDeclaration" class="mt-4 mb-8"></div>
 
 			<div class="mt-8 mb-4">
 				<a

@@ -176,10 +176,7 @@
     "CtaSection": {
       "title": "Let's build your next winning campaign",
       "subtitle": "Tell us about your brand and markets. We'll create a custom content plan with recommended creators, pricing, and timeline.",
-      "cta": "Book a Free Strategy Call",
-      "trust1": "✓ Free strategy call",
-      "trust2": "✓ No commitment",
-      "trust3": "✓ Response within 24h"
+      "cta": "Book a Free Strategy Call"
     }
   },
   "LoginPage": {

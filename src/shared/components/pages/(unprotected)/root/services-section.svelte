@@ -42,12 +42,12 @@
 		<!-- Header -->
 		<div class="text-center mb-24 relative z-10">
 			<p class="text-sm text-light-dim mb-6 uppercase tracking-wider">{m['HomePage.ServicesSection.label']()}</p>
-			
+
 			<h2 class="text-[clamp(2.5rem,5vw,4rem)] font-extrabold text-light mb-6 leading-[1.1] tracking-tight">
 				{m['HomePage.ServicesSection.titleLine1']()}<br />
 				<span class="text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-accent animate-gradient-x">{m['HomePage.ServicesSection.titleLine2']()}</span>
 			</h2>
-			
+
 			<p class="text-lg md:text-xl text-light-muted max-w-[640px] mx-auto leading-relaxed">
 				{m['HomePage.ServicesSection.subtitle']()}
 			</p>
@@ -59,7 +59,7 @@
 				{@const msg = serviceMessages[i]}
 				<!-- Service Card Container -->
 				<div class="group relative flex flex-col lg:flex-row items-center gap-10 lg:gap-20 {i % 2 === 1 ? 'lg:flex-row-reverse' : ''}">
-					
+
 					<!-- Content Side -->
 					<div class="flex-1 relative z-10 text-center lg:text-left">
 						<div class="inline-block mb-4">
@@ -67,11 +67,11 @@
 								0{i + 1} — {msg.tag()}
 							</span>
 						</div>
-						
-						<h3 class="text-4xl md:text-5xl font-bold text-light mb-6 font-display leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:{service.gradient} transition-all duration-300">
+
+						<h3 class="text-4xl md:text-5xl font-bold text-light mb-6 font-display leading-tight">
 							{msg.title()}
 						</h3>
-						
+
 						<p class="text-lg text-light-muted leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
 							{msg.desc()}
 						</p>
@@ -88,9 +88,6 @@
 					<!-- Visual Side (Feature Grid) -->
 					<div class="flex-1 w-full max-w-[500px] lg:max-w-none">
 						<div class="relative">
-							<!-- Abstract Background Shape behind grid -->
-							<div class="absolute inset-0 bg-linear-to-br {service.gradient} opacity-5 blur-3xl rounded-full transform scale-110 group-hover:scale-125 transition-transform duration-700"></div>
-							
 							<!-- Glass Card Container -->
 							<div class="relative grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-3xl bg-white/2 border border-white/5 backdrop-blur-sm group-hover:border-white/10 transition-colors duration-500">
 								{#each service.features as feature, j}
@@ -107,13 +104,9 @@
 									</div>
 								{/each}
 							</div>
-
-							<!-- Decorative Elements -->
-							<div class="absolute -top-4 -right-4 w-24 h-24 border border-white/5 rounded-full border-dashed animate-spin-slow pointer-events-none opacity-20"></div>
-							<div class="absolute -bottom-4 -left-4 w-16 h-16 bg-linear-to-br {service.gradient} rounded-full blur-2xl opacity-20 animate-pulse pointer-events-none"></div>
 						</div>
 					</div>
-					
+
 				</div>
 			{/each}
 		</div>
@@ -122,19 +115,3 @@
 	<WaveBottomTransition fillClass="text-dark-surface" />
 </section>
 
-<style>
-	.animate-spin-slow {
-		animation: spin 12s linear infinite;
-	}
-	@keyframes spin {
-		from { transform: rotate(0deg); }
-		to { transform: rotate(360deg); }
-	}
-	.animate-pulse-slow {
-		animation: pulse 6s ease-in-out infinite;
-	}
-	@keyframes pulse {
-		0%, 100% { opacity: 0.1; }
-		50% { opacity: 0.2; }
-	}
-</style>

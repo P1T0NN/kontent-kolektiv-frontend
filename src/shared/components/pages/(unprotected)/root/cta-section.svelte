@@ -41,12 +41,6 @@
 						{COMPANY_DATA.EMAIL}
 					</a>
 				</div>
-
-				<div class="flex items-center justify-center gap-5 flex-wrap text-[0.72rem] text-light-dim">
-					<span>{m['HomePage.CtaSection.trust1']()}</span>
-					<span>{m['HomePage.CtaSection.trust2']()}</span>
-					<span>{m['HomePage.CtaSection.trust3']()}</span>
-				</div>
 			</div>
 		</div>
 	</div>
