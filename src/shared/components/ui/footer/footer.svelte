@@ -43,7 +43,7 @@
 			<p class="text-xs text-light-dim">{m['Footer.copyright']()}</p>
 			<div class="flex gap-6">
 				<a href={UNPROTECTED_PAGE_ENDPOINTS.PRIVACY_POLICY} class="text-xs text-light-dim hover:text-light transition-colors duration-200">{m['Footer.privacyPolicy']()}</a>
-				<a href={UNPROTECTED_PAGE_ENDPOINTS.TERMS_OF_SERVICE} class="text-xs text-light-dim hover:text-light transition-colors duration-200">{m['Footer.termsOfService']()}</a>
+				<!--	<a href={UNPROTECTED_PAGE_ENDPOINTS.TERMS_OF_SERVICE} class="text-xs text-light-dim hover:text-light transition-colors duration-200">{m['Footer.termsOfService']()}</a>-->
 			</div>
 		</div>
 	</div>
