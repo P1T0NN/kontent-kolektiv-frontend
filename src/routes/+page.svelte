@@ -7,7 +7,8 @@
 	import { m } from '@/shared/lib/paraglide/messages';
 
 	// CONFIG
-	import { SITE_URL, COMPANY_DATA } from '@/shared/constants';
+	import { SITE_URL } from '@/shared/constants';
+	import { HOMEPAGE_JSON_LD_SCRIPT, jsonLdScript } from '@/shared/data/homepageJsonLd';
 
 	// CLASS
 	import { rootPageClass } from '@/routes/index.svelte';
@@ -28,42 +29,18 @@
 
 	const canonicalUrl = $derived(SITE_URL + page.url.pathname);
 	const ogImage = `${SITE_URL}/logo/kontent-kolektiv-logo.png`;
-	const faqSchema = $derived({
-		'@context': 'https://schema.org',
-		'@type': 'FAQPage',
-		mainEntity: [
-			{ '@type': 'Question', name: m['HomePage.FaqSection.faq1Question'](), acceptedAnswer: { '@type': 'Answer', text: m['HomePage.FaqSection.faq1Answer']() } },
-			{ '@type': 'Question', name: m['HomePage.FaqSection.faq2Question'](), acceptedAnswer: { '@type': 'Answer', text: m['HomePage.FaqSection.faq2Answer']() } },
-			{ '@type': 'Question', name: m['HomePage.FaqSection.faq3Question'](), acceptedAnswer: { '@type': 'Answer', text: m['HomePage.FaqSection.faq3Answer']() } },
-			{ '@type': 'Question', name: m['HomePage.FaqSection.faq4Question'](), acceptedAnswer: { '@type': 'Answer', text: m['HomePage.FaqSection.faq4Answer']() } }
-		]
-	});
-	const orgSchema = {
-		'@context': 'https://schema.org',
-		'@type': 'Organization',
-		name: COMPANY_DATA.COMPANY_NAME,
-		url: SITE_URL,
-		email: COMPANY_DATA.EMAIL,
-		sameAs: [COMPANY_DATA.INSTAGRAM_URL]
-	};
-
-	$effect(() => {
-		if (typeof document === 'undefined') return;
-		const faq = faqSchema;
-		const org = orgSchema;
-		const s1 = document.createElement('script');
-		s1.type = 'application/ld+json';
-		s1.textContent = JSON.stringify(faq);
-		document.head.appendChild(s1);
-		const s2 = document.createElement('script');
-		s2.type = 'application/ld+json';
-		s2.textContent = JSON.stringify(org);
-		document.head.appendChild(s2);
-		return () => {
-			s1.remove();
-			s2.remove();
-		};
-	});
+	const faqJsonLdScript = $derived(
+		jsonLdScript({
+			'@context': 'https://schema.org',
+			'@type': 'FAQPage',
+			mainEntity: [
+				{ '@type': 'Question', name: m['HomePage.FaqSection.faq1Question'](), acceptedAnswer: { '@type': 'Answer', text: m['HomePage.FaqSection.faq1Answer']() } },
+				{ '@type': 'Question', name: m['HomePage.FaqSection.faq2Question'](), acceptedAnswer: { '@type': 'Answer', text: m['HomePage.FaqSection.faq2Answer']() } },
+				{ '@type': 'Question', name: m['HomePage.FaqSection.faq3Question'](), acceptedAnswer: { '@type': 'Answer', text: m['HomePage.FaqSection.faq3Answer']() } },
+				{ '@type': 'Question', name: m['HomePage.FaqSection.faq4Question'](), acceptedAnswer: { '@type': 'Answer', text: m['HomePage.FaqSection.faq4Answer']() } }
+			]
+		})
+	);
 
 	onDestroy(() => {
 		rootPageClass.cleanup();
@@ -78,6 +55,9 @@
 	<meta property="og:image" content={ogImage} />
 	<meta property="og:url" content={canonicalUrl} />
 	<meta property="og:type" content="website" />
+	<!-- JSON-LD is generated from a trusted static object via JSON.stringify -->
+	{@html HOMEPAGE_JSON_LD_SCRIPT}
+	{@html faqJsonLdScript}
 </svelte:head>
 
 <main>
