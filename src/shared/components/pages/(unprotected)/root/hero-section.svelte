@@ -11,6 +11,7 @@
 
 	let visible = $state(false);
 
+	// EFFECT
 	$effect(() => {
 		const timer = setTimeout(() => (visible = true), 100);
 		return () => clearTimeout(timer);
