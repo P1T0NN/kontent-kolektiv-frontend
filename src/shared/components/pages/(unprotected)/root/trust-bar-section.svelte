@@ -13,7 +13,7 @@
 		</p>
 	</div>
 	<div class="relative w-full overflow-hidden mask-[linear-gradient(90deg,transparent_0%,black_10%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(90deg,transparent_0%,black_10%,black_90%,transparent_100%)]">
-		<div class="flex w-max animate-[marquee_30s_linear_infinite]">
+		<div class="flex w-max animate-[marquee_55s_linear_infinite]">
 			{#each [0, 1] as _set}
 				<div class="flex items-center gap-14 pr-14" aria-hidden={_set > 0 ? 'true' : undefined}>
 					{#each brandsData as brand}
