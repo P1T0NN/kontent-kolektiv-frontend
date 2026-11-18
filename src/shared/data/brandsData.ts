@@ -9,5 +9,14 @@ export const brandsData = [
 	'Orange Center',
 	'Chipolino',
 	'Pufies',
-	'NAOS'
+	'NAOS',
+	'Bolt Food',
+	'Multisport',
+	'Yettel',
+	'Remixshop',
+	'DZI',
+	'Olympus',
+	'Kubeti',
+	'Maretti',
+	'Astratex'
 ];
