@@ -11,5 +11,5 @@ export const footerServicesLinks = [
 export const footerCompanyLinks = [
 	{ href: UNPROTECTED_PAGE_ENDPOINTS.RESULTS, label: m['Footer.Company.caseStudies'] },
 	{ href: UNPROTECTED_PAGE_ENDPOINTS.CONTACT, label: m['Footer.Company.contact'] },
-	{ href: UNPROTECTED_PAGE_ENDPOINTS.CONTACT, label: m['Footer.Company.becomeACreator'] }
+	{ href: UNPROTECTED_PAGE_ENDPOINTS.BECOME_A_CREATOR, label: m['Footer.Company.becomeACreator'] }
 ];
