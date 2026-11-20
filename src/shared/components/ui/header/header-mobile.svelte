@@ -70,7 +70,7 @@
             <ArrowRightIcon class="w-4 h-4 text-white/25 ml-auto group-hover:text-white/70 group-hover:translate-x-1 transition-all" />
         </a>
         <a
-            href={UNPROTECTED_PAGE_ENDPOINTS.CONTACT}
+            href={UNPROTECTED_PAGE_ENDPOINTS.BECOME_A_CREATOR}
             onclick={() => headerClass.mobileOpen = false}
             class="flex items-center gap-3 p-4 rounded-2xl bg-[rgba(233,69,144,0.08)] border border-[rgba(233,69,144,0.15)] hover:border-[rgba(233,69,144,0.35)] transition-all duration-150 group"
         >
