@@ -23,6 +23,6 @@ export const UNPROTECTED_PAGE_ENDPOINTS = {
 	FAQ: "#faq",
 	SERVICES: "#services",
 	HIRE_CREATORS: "https://calendly.com/kdobrev/sync",
-	BECOME_A_CREATOR: "https://bit.ly/new-ugc-applicaiton-form",
+	BECOME_A_CREATOR: "https://docs.google.com/forms/d/e/1FAIpQLSctzGHHDPCMUPJVhBSaUz4YYnCa9erqnFJf4dJlt1H9gMcTbg/viewform",
 	LOGIN: "/login"
 };
